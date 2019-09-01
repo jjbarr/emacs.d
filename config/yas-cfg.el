@@ -5,7 +5,7 @@
 
 (use-package yasnippet-snippets :ensure t)
 (use-package yasnippet :ensure t
-  :diminish
+  :diminish yas-minor-mode
   :config (yas-global-mode 1))
 
 (provide 'yas-cfg)
