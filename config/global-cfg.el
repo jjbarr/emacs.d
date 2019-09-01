@@ -31,7 +31,10 @@
 
 ;;winum is really freaking handy
 (use-package winum :ensure t
-  :config (winum-mode))
+  :config
+  (setq winum-auto-setup-mode-line nil)
+  (winum-mode)
+  (winum-set-keymap-prefix (kbd "C-x o")))
 
 ;;gotta have git
 (use-package magit :ensure t)
@@ -66,6 +69,14 @@
 
 ;;gotta make sure my theme is here.
 (use-package color-theme-sanityinc-solarized :ensure t)
+
+;;Shiiiny
+
+(use-package spaceline :ensure t
+  :config
+  (progn
+    (spaceline-emacs-theme)
+    (spaceline-helm-mode)))
 
 ;;make dired play nice
 (when (require 'dired-aux)

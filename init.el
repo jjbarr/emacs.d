@@ -56,7 +56,7 @@
  '(js2-basic-offset 4)
  '(package-selected-packages
    (quote
-    (auto-org-md flycheck winum dap-mode helm-lsp lsp-java lsp-mode lsp-treemacs lsp-ui treemacs treemacs-magit treemacs-projectile use-package color-theme-sanityinc-solarized helm magit geiser slime rust-mode org lua-mode paredit paradox js2-mode coffee-mode)))
+    (spaceline auto-org-md flycheck winum dap-mode helm-lsp lsp-java lsp-mode lsp-treemacs lsp-ui treemacs treemacs-magit treemacs-projectile use-package color-theme-sanityinc-solarized helm magit geiser slime rust-mode org lua-mode paredit paradox js2-mode coffee-mode)))
  '(paradox-automatically-star t))
 
 (custom-set-faces

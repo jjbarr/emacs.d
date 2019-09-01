@@ -4,7 +4,7 @@
 ;;; Code:
 (use-package projectile :ensure t
   :demand t
-  :delight '(:eval (concat " " (projectile-project-name)))
+  :diminish
   :config
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   (setq projectile-project-search-path '("~/projects"))
