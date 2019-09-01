@@ -36,6 +36,7 @@
 (require 'java-cfg)
 (require 'js-cfg)
 (require 'org-cfg)
+(require 'chrome-cfg)
 
 
 ;;automatically added stuff down here
