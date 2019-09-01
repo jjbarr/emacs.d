@@ -13,3 +13,6 @@ eclipse.jdt.ls/*
 .dap-breakpoints
 workspace
 .lsp-session*
+.server
+server
+\#*

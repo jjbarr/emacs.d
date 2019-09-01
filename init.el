@@ -12,6 +12,9 @@
 
 ;;packaging stuff
 (require 'package)
+;hack around emacs bug
+(if (eq system-type 'windows-nt)
+    (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
 (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
 (package-initialize)
