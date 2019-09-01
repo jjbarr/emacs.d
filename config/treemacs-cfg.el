@@ -29,7 +29,8 @@
         ("C-x t M-t" . treemacs-find-tag)))
 
 (use-package treemacs-projectile :ensure t
-  :after treemacs projectile)
+  :after treemacs projectile
+  :bind (("C-c o p" . treemacs-projectile)))
 
 (use-package treemacs-magit :ensure t
   :after treemacs magit)

@@ -27,6 +27,7 @@
 ;;config stuff
 
 (require 'global-cfg)
+(require 'projectile-cfg)
 (require 'lisp-cfg)
 (require 'treemacs-cfg)
 (require 'rust-cfg)

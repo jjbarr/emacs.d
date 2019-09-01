@@ -4,12 +4,16 @@
 ;;; Code:
 
 (use-package lsp-mode :ensure t
+  :init
+  (progn
+    (setq lsp-prefer-flymake nil)
+    (setq lsp-enable-snippet nil))
   :hook ((rust-mode . lsp)
          (java-mode . lsp))
   :commands lsp)
 
 (use-package lsp-ui :ensure t
-  :commands lsp-ui-mode)
+  :hook ((lsp-mode . lsp-ui-mode)))
 (use-package helm-lsp :ensure t
   :commands helm-lsp-workspace-symbol)
 (use-package lsp-treemacs :ensure t

@@ -7,4 +7,7 @@ transient/*
 elpa/*
 ac-comphist.dat
 eshell/*
-
+eclipse.jdt.ls/*
+.dap-breakpoints
+workspace
+.lsp-session*

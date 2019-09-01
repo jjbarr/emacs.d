@@ -10,7 +10,13 @@
 (bind-key "\C-c\C-k" 'kill-region)
 (bind-key "\C-o" 'occur)
 
+;;mandatory packages for use-package features
+
+(use-package diminish :ensure t)
+(use-package delight :ensure t)
+
 ;;I like helm
+
 (use-package helm :ensure t
   :diminish helm-mode
   :config
