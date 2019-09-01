@@ -55,8 +55,7 @@
  '(js2-basic-offset 4)
  '(package-selected-packages
    (quote
-    (delight diminish helm-core helm-projectile yasnippet yasnippet-snippets spaceline auto-org-md flycheck winum dap-mode helm-lsp lsp-java lsp-mode lsp-treemacs lsp-ui treemacs treemacs-magit treemacs-projectile use-package color-theme-sanityinc-solarized helm magit geiser slime rust-mode org lua-mode paredit js2-mode coffee-mode)))
- '(paradox-automatically-star t))
+    (delight diminish helm-core helm-projectile yasnippet yasnippet-snippets spaceline auto-org-md flycheck winum dap-mode helm-lsp lsp-java lsp-mode lsp-treemacs lsp-ui treemacs treemacs-magit treemacs-projectile use-package color-theme-sanityinc-solarized helm magit geiser slime rust-mode org lua-mode paredit js2-mode coffee-mode))))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
