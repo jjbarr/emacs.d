@@ -15,6 +15,8 @@
 (use-package diminish :ensure t)
 (use-package delight :ensure t)
 
+
+;;;Nav stuff goes here
 ;;I like helm
 
 (use-package helm :ensure t
@@ -34,29 +36,20 @@
   :config
   (setq winum-auto-setup-mode-line nil)
   (winum-mode)
-  (winum-set-keymap-prefix (kbd "C-x o")))
+  (winum-set-keymap-prefix (kbd "M-o")))
 
 ;;gotta have git
 (use-package magit :ensure t)
 
-;;global-enable flycheck
+;;;And flycheck is here
 (use-package flycheck :ensure t
   :diminish
   :config (global-flycheck-mode))
 
-;;fill column and fci
-(setq-default fill-column 80)
 
-(use-package fill-column-indicator ; fci isn't insured - not on melpa
-  ;;global fci mode--makes FCI DWIM.
-  :config
-  (progn
-    (define-globalized-minor-mode global-fci-mode fci-mode
-      (lambda ()
-        (if (and buffer-file-name
-                 (display-graphic-p))
-            (fci-mode 1))))
-    (global-fci-mode 1)))
+;;;General defaults
+;;fill column is 70 by default for some reason
+(setq-default fill-column 80)
 
 ;;tabs and spaces blah blah blah
 (setq-default indent-tabs-mode nil)
@@ -67,17 +60,6 @@
 ;;disable extra X stuff.
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
-
-;;gotta make sure my theme is here.
-(use-package color-theme-sanityinc-solarized :ensure t)
-
-;;Shiiiny
-
-(use-package spaceline :ensure t
-  :config
-  (progn
-    (spaceline-emacs-theme)
-    (spaceline-helm-mode)))
 
 ;;make dired play nice
 (when (require 'dired-aux)
