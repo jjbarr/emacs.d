@@ -27,6 +27,7 @@
 ;;config stuff
 
 (require 'global-cfg)
+(require 'yas-cfg)
 (require 'projectile-cfg)
 (require 'lisp-cfg)
 (require 'treemacs-cfg)
@@ -39,8 +40,6 @@
 
 ;;automatically added stuff down here
 (setq magit-last-seen-setup-instructions "1.4.0")
-
-(setq paradox-github-token "ad8e2299d5ce84338f7bbe9bdc03b8a4fa8d9518")
 
 ;;emacs fucks with this. I give up on keeping it <80.
 (custom-set-variables
@@ -56,7 +55,7 @@
  '(js2-basic-offset 4)
  '(package-selected-packages
    (quote
-    (spaceline auto-org-md flycheck winum dap-mode helm-lsp lsp-java lsp-mode lsp-treemacs lsp-ui treemacs treemacs-magit treemacs-projectile use-package color-theme-sanityinc-solarized helm magit geiser slime rust-mode org lua-mode paredit paradox js2-mode coffee-mode)))
+    (delight diminish helm-core helm-projectile yasnippet yasnippet-snippets spaceline auto-org-md flycheck winum dap-mode helm-lsp lsp-java lsp-mode lsp-treemacs lsp-ui treemacs treemacs-magit treemacs-projectile use-package color-theme-sanityinc-solarized helm magit geiser slime rust-mode org lua-mode paredit js2-mode coffee-mode)))
  '(paradox-automatically-star t))
 
 (custom-set-faces

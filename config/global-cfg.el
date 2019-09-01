@@ -41,6 +41,7 @@
 
 ;;global-enable flycheck
 (use-package flycheck :ensure t
+  :diminish
   :config (global-flycheck-mode))
 
 ;;fill column and fci
