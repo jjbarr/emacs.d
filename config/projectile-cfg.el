@@ -10,8 +10,8 @@
   (define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
   (setq projectile-project-search-path
         (if (eq system-type 'windows-nt)
-            `(,(substitute-in-file-name "$HOMEPATH/Projects"))
-            '("~/projects")))
+            (list (substitute-in-file-name "$HOMEPATH/Projects"))
+          '("~/projects")))
   (projectile-mode))
 
 (use-package helm-projectile :ensure t
