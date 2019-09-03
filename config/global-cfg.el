@@ -4,8 +4,10 @@
 ;It's just config.
 
 ;;; Code:
+;;; First and foremost, I should never, ever be using DOS line endings.
+(prefer-coding-system 'utf-8-unix)
 
-
+;;Global keybinds for emacs features.
 (bind-key "\C-w" 'backward-kill-word)
 (bind-key "\C-c\C-k" 'kill-region)
 (bind-key "\C-o" 'occur)
