@@ -40,7 +40,7 @@
 (require 'js-cfg)
 (require 'org-cfg)
 (require 'chrome-cfg)
-
+(require 'gnus-cfg)
 
 ;;automatically added stuff down here
 (setq magit-last-seen-setup-instructions "1.4.0")
@@ -59,7 +59,8 @@
  '(js-indent-level 4)
  '(package-selected-packages
    (quote
-    (delight diminish helm-core helm-projectile yasnippet yasnippet-snippets spaceline auto-org-md flycheck winum dap-mode helm-lsp lsp-java lsp-mode lsp-treemacs lsp-ui treemacs treemacs-magit treemacs-projectile use-package color-theme-sanityinc-solarized helm magit geiser slime rust-mode org lua-mode paredit js2-mode coffee-mode))))
+    (delight diminish helm-core helm-projectile yasnippet yasnippet-snippets spaceline auto-org-md flycheck winum dap-mode helm-lsp lsp-java lsp-mode lsp-treemacs lsp-ui treemacs treemacs-magit treemacs-projectile use-package color-theme-sanityinc-solarized helm magit geiser slime rust-mode org lua-mode paredit js2-mode coffee-mode)))
+ '(send-mail-function (quote smtpmail-send-it)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.

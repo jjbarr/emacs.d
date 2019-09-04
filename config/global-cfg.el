@@ -5,6 +5,14 @@
 
 ;;; Code:
 
+;; tell us about yourself, why don't you?
+
+(defvar user-mail-addresses '("jbarrett186@gmail.com"
+                              "jjbarrett@umass.edu"))
+
+(setq user-full-name "Joshua Barrett")
+
+;;bindings for global stuff.
 
 (bind-key "\C-w" 'backward-kill-word)
 (bind-key "\C-c\C-k" 'kill-region)

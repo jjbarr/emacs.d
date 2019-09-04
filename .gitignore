@@ -14,5 +14,6 @@ eclipse.jdt.ls/*
 workspace
 .lsp-session*
 .server
+bookmarks
 server
 \#*
