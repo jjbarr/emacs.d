@@ -72,6 +72,7 @@
 ;;disable extra X stuff.
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;;make dired play nice
 (when (require 'dired-aux)
