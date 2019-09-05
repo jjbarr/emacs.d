@@ -18,8 +18,13 @@
   (setq gnus-nntp-server nil
         gnus-select-method '(nnnil "")
         gnus-fetch-old-headers 'some)
+  (setq gnus-auto-expirable-newsgroups "INBOX")
   (setq gnus-secondary-select-methods
-        '((nnimap "personal"
+        '((nntp "news"
+                (nntp-open-connection-function nntp-open-ssl-stream)
+                (nntp-port-number 563)
+                (nntp-address "news.eternal-september.org"))
+          (nnimap "personal"
                   (nnimap-address "imap.gmail.com")
                   (nnimap-server-port "imaps")
                   (nnimap-stream ssl)
