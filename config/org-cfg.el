@@ -14,6 +14,5 @@
          ("C-c a" . org-agenda)
          ("C-c c" . org-capture)
          ("C-c b" . org-switchb)))
-
 (provide 'org-cfg)
 ;;; org-cfg.el ends here
