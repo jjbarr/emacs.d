@@ -5,7 +5,7 @@
 
 ;;; Code:
 ;;; First and foremost, I should never, ever be using DOS line endings.
-;(prefer-coding-system 'utf-8-unix)
+(prefer-coding-system 'utf-8-unix)
 
 
 ;; tell us about yourself, why don't you?

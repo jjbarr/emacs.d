@@ -60,6 +60,7 @@
  '(package-selected-packages
    (quote
     (delight diminish helm-core helm-projectile yasnippet yasnippet-snippets spaceline auto-org-md flycheck winum dap-mode helm-lsp lsp-java lsp-mode lsp-treemacs lsp-ui treemacs treemacs-magit treemacs-projectile use-package color-theme-sanityinc-solarized helm magit geiser slime rust-mode org lua-mode paredit js2-mode coffee-mode)))
+ '(safe-local-variable-values (quote ((indent-tabs-mode nil))))
  '(send-mail-function (quote smtpmail-send-it)))
 
 (custom-set-faces
