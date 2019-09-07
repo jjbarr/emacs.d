@@ -13,7 +13,13 @@
   :commands lsp)
 
 (use-package lsp-ui :ensure t
-  :hook ((lsp-mode . lsp-ui-mode)))
+  :hook ((lsp-mode . lsp-ui-mode))
+  :init
+  (setq lsp-ui-flycheck-live-reporting nil
+        lsp-ui-sideline-enable nil
+        lsp-ui-sideline-show-diagnostics nil
+        lsp-ui-doc-use-webkit nil)
+  )
 (use-package helm-lsp :ensure t
   :commands helm-lsp-workspace-symbol)
 (use-package lsp-treemacs :ensure t

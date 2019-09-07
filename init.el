@@ -30,6 +30,7 @@
 ;;config stuff
 
 (require 'global-cfg)
+(require 'font-cfg)
 (require 'yas-cfg)
 (require 'projectile-cfg)
 (require 'lisp-cfg)
