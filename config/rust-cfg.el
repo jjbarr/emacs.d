@@ -2,8 +2,9 @@
 ;;; Commentary:
 ;;none yet.
 ;;; Code:
-(use-package rust-mode :ensure t
-  :mode "\\.rs\\'")
+(use-package rustic :ensure t
+  :after (lsp-mode lsp-ui)
+  :mode ("\\.rs\\'" . rustic-mode))
 
 (provide 'rust-cfg)
 ;;; rust-cfg.el ends here

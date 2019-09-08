@@ -8,8 +8,7 @@
   (progn
     (setq lsp-prefer-flymake nil)
     (setq lsp-enable-snippet nil))
-  :hook ((rust-mode . lsp)
-         (java-mode . lsp))
+  :hook ((java-mode . lsp)) ;;rustic deals with LSP on its own.
   :commands lsp)
 
 (use-package lsp-ui :ensure t
