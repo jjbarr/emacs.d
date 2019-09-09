@@ -3,9 +3,10 @@
 ;; none.
 ;;; Code:
 (use-package haskell-mode :ensure t
-  :mode "\\.hs\\'"
-  :hooks ((haskell-mode . interactive-haskell-mode)))
+  :mode "\\.hs\\'")
 
+(use-package intero :ensure t
+  :hook ((haskell-mode . intero-mode)))
 
 (provide 'haskell-cfg)
 ;;; haskell-cfg.el ends here

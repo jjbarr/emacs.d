@@ -30,6 +30,7 @@
 ;;config stuff
 
 (require 'global-cfg)
+(require 'docs-cfg)
 (require 'font-cfg)
 (require 'yas-cfg)
 (require 'projectile-cfg)
@@ -39,7 +40,6 @@
 (require 'lsp-cfg)
 (require 'java-cfg)
 (require 'haskell-cfg)
-
 (require 'js-cfg)
 (require 'org-cfg)
 (require 'chrome-cfg)
