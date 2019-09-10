@@ -78,6 +78,9 @@
 (when (require 'dired-aux)
   (require 'dired-async))
 
+;; if I wanted something to open in firefox, I'd open it in fucking firefox.
+(setq browse-url-browser-function 'eww-browse-url)
+
 ;;last but not least
 (provide 'global-cfg)
 
