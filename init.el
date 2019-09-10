@@ -62,7 +62,7 @@
  '(js-indent-level 4)
  '(package-selected-packages
    (quote
-    (intero haskell-mode rustic delight diminish helm-core helm-projectile yasnippet yasnippet-snippets spaceline auto-org-md flycheck winum dap-mode helm-lsp lsp-java lsp-mode lsp-treemacs lsp-ui treemacs treemacs-magit treemacs-projectile use-package color-theme-sanityinc-solarized helm magit geiser slime org lua-mode paredit js2-mode coffee-mode)))
+    (intero haskell-mode delight diminish helm-core helm-projectile yasnippet yasnippet-snippets spaceline auto-org-md flycheck winum dap-mode helm-lsp lsp-java lsp-mode lsp-treemacs lsp-ui treemacs treemacs-magit treemacs-projectile use-package color-theme-sanityinc-solarized helm magit geiser slime org lua-mode paredit js2-mode coffee-mode)))
  '(safe-local-variable-values (quote ((indent-tabs-mode nil))))
  '(send-mail-function (quote smtpmail-send-it)))
 
