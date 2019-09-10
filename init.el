@@ -60,6 +60,10 @@
     ("4aee8551b53a43a883cb0b7f3255d6859d766b6c5e14bcb01bed572fcbef4328" default)))
  '(inhibit-startup-screen t)
  '(js-indent-level 4)
+ '(org-format-latex-options
+   (quote
+    (:foreground default :background default :scale 1.3 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
+                 ("begin" "$1" "$" "$$" "\\(" "\\["))))
  '(package-selected-packages
    (quote
     (intero haskell-mode delight diminish helm-core helm-projectile yasnippet yasnippet-snippets spaceline auto-org-md flycheck winum dap-mode helm-lsp lsp-java lsp-mode lsp-treemacs lsp-ui treemacs treemacs-magit treemacs-projectile use-package color-theme-sanityinc-solarized helm magit geiser slime org lua-mode paredit js2-mode coffee-mode)))
