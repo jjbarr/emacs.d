@@ -37,8 +37,8 @@
   :diminish helm-mode
   :config
   (require 'helm-config)
-  (push '(find-file . ido) helm-completing-read-handlers-alist)
-  (helm-mode))
+  (helm-mode)
+  (push '(find-file . ido) helm-completing-read-handlers-alist))
 
 
 ;;ace-jump should always be on
