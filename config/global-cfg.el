@@ -4,9 +4,10 @@
 ;It's just config.
 
 ;;; Code:
-;;; First and foremost, I should never, ever be using DOS line endings.
+;; First and foremost, I should never, ever be using DOS line endings.
+;; I know, I know, Git handles this automatically, but I have non-git files.
+;; Embarassing but true.
 (prefer-coding-system 'utf-8-unix)
-
 
 ;; tell us about yourself, why don't you?
 
@@ -20,7 +21,7 @@
 ;;Global keybinds for emacs features.
 (bind-key "\C-w" 'backward-kill-word)
 (bind-key "\C-c\C-k" 'kill-region)
-(bind-key "\C-o" 'occur)
+(bind-key "\C-o" 'helm-occur)
 
 ;;mandatory packages for use-package features
 
@@ -29,15 +30,16 @@
 
 
 ;;;Nav stuff goes here
-;;I like helm
+;;I like helm for most things, find-file is the exception. God ido's find file
+;;is good.
 
 (use-package helm :ensure t
   :diminish helm-mode
   :config
-  (progn
-    (require 'helm-config)
-    (helm-mode))
-  :bind (("M-x" . helm-M-x)))
+  (require 'helm-config)
+  (push '(find-file . ido) helm-completing-read-handlers-alist)
+  (helm-mode))
+
 
 ;;ace-jump should always be on
 (use-package avy :ensure t
@@ -69,6 +71,10 @@
 (setq-default c-basic-offset tab-width)
 (defvaralias 'cperl-indent-level 'tab-width)
 
+;; ooh, ooh, recursive mini!
+
+(setq enable-recursive-minibuffers t)
+
 ;;disable extra X stuff.
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
@@ -77,9 +83,6 @@
 ;;make dired play nice
 (when (require 'dired-aux)
   (require 'dired-async))
-
-;; if I wanted something to open in firefox, I'd open it in fucking firefox.
-(setq browse-url-browser-function 'eww-browse-url)
 
 ;;last but not least
 (provide 'global-cfg)
