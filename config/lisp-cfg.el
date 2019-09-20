@@ -28,7 +28,7 @@
 (use-package slime :ensure t
   :config
   (progn
-    (setq inferior-lisp-program "/usr/bin/sbcl --dynamic-space-size 2048")
+    (setq inferior-lisp-program "sbcl --dynamic-space-size 2048")
     (setq slime-contribs '(slime-fancy)))
   :commands slime)
 
