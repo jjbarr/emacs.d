@@ -30,8 +30,6 @@
 
 
 ;;;Nav stuff goes here
-;;I like helm for most things, find-file is the exception. God ido's find file
-;;is good.
 
 ;;ace-jump should always be on
 (use-package avy :ensure t
