@@ -21,7 +21,7 @@
 ;;Global keybinds for emacs features.
 (bind-key "\C-w" 'backward-kill-word)
 (bind-key "\C-c\C-k" 'kill-region)
-(bind-key "\C-o" 'helm-occur)
+(bind-key "\C-o" 'ivy-occur)
 
 ;;mandatory packages for use-package features
 
