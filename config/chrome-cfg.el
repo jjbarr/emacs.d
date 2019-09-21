@@ -4,9 +4,8 @@
 ;;; Code:
 
 ;; fill column rule
-(use-package fill-column-indicator ; fci isn't insured - not on melpa
+(use-package fill-column-indicator ; fci isn't ensured - not on melpa
   ;;global fci mode--makes FCI DWIM.
-  :if window-system
   :config
   (progn
     (define-globalized-minor-mode global-fci-mode fci-mode
@@ -17,12 +16,10 @@
     (global-fci-mode 1)))
 
 ;;gotta make sure my theme is here.
-(use-package color-theme-sanityinc-solarized :ensure t
-  :if window-system)
+(use-package color-theme-sanityinc-solarized :ensure t)
 
 ;;Shiiiny
 (use-package spaceline :ensure t
-  :if window-system
   :config
   (progn
     (spaceline-emacs-theme)
@@ -30,3 +27,4 @@
 
 (provide 'chrome-cfg)
 ;;; chrome-cfg.el ends here
+
