@@ -19,10 +19,8 @@
   (setq lsp-ui-flycheck-live-reporting nil
         lsp-ui-sideline-enable nil
         lsp-ui-sideline-show-diagnostics nil
-        lsp-ui-doc-use-webkit nil)
-  )
-(use-package helm-lsp :ensure t
-  :commands helm-lsp-workspace-symbol)
+        lsp-ui-doc-use-webkit nil))
+
 (use-package lsp-treemacs :ensure t
   :commands lsp-treemacs-errors-list)
 

@@ -3,18 +3,13 @@
 ;; none at present
 ;;; Code:
 (use-package gnus
-  :after (helm) ;my mailconf uses helm internally for stuff
+  :after (ivy) ;my mailconf uses helm internally for stuff
   :config
   (setq user-mail-address (car user-mail-addresses)) ;;sane defaults
   (defun set-user-mail ()
     "interactively set the user email from the variable user-email-addresses."
     (interactive)
-    (helm :sources (helm-build-sync-source "Helm Email"
-                       :candidates user-mail-addresses
-                       :fuzzy-match t
-                       :action '(("Use Address" .
-                                  (lambda (e)
-                                    (setq user-mail-address e)))))))
+    (ivy-read "e-mail" user-mail-addresses))
   (setq gnus-nntp-server nil
         gnus-select-method '(nnnil "")
         gnus-fetch-old-headers 'some)

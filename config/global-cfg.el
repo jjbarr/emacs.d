@@ -33,14 +33,6 @@
 ;;I like helm for most things, find-file is the exception. God ido's find file
 ;;is good.
 
-(use-package helm :ensure t
-  :diminish helm-mode
-  :config
-  (require 'helm-config)
-  (helm-mode)
-  (push '(find-file . ido) helm-completing-read-handlers-alist))
-
-
 ;;ace-jump should always be on
 (use-package avy :ensure t
   :bind ("C-c C-SPC" . avy-goto-char))

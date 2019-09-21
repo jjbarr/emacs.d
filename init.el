@@ -30,6 +30,7 @@
 ;;config stuff
 
 (require 'global-cfg)
+(require 'ivy-cfg)
 (require 'docs-cfg)
 (require 'font-cfg)
 (require 'yas-cfg)
@@ -66,7 +67,7 @@
                  ("begin" "$1" "$" "$$" "\\(" "\\["))))
  '(package-selected-packages
    (quote
-    (intero haskell-mode delight diminish helm-core helm-projectile yasnippet yasnippet-snippets spaceline auto-org-md flycheck winum dap-mode helm-lsp lsp-java lsp-mode lsp-treemacs lsp-ui treemacs treemacs-magit treemacs-projectile use-package color-theme-sanityinc-solarized helm magit geiser slime org lua-mode paredit js2-mode coffee-mode)))
+    (counsel-projectile counsel-projectile-mode counsel swiper ivy intero haskell-mode delight diminish helm-core helm-projectile yasnippet yasnippet-snippets spaceline auto-org-md flycheck winum dap-mode helm-lsp lsp-java lsp-mode lsp-treemacs lsp-ui treemacs treemacs-magit treemacs-projectile use-package color-theme-sanityinc-solarized helm magit geiser slime org lua-mode paredit js2-mode coffee-mode)))
  '(safe-local-variable-values (quote ((indent-tabs-mode nil))))
  '(send-mail-function (quote smtpmail-send-it)))
 

@@ -14,10 +14,10 @@
           '("~/projects")))
   (projectile-mode))
 
-(use-package helm-projectile :ensure t
+(use-package counsel-projectile :ensure t
   :demand t
-  :after (helm projectile)
-  :config (helm-projectile-on))
+  :config
+  (counsel-projectile-mode))
 
 (provide 'projectile-cfg)
 ;;; projectile-cfg.el ends here
