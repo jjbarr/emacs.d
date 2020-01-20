@@ -15,7 +15,8 @@
 ;hack around emacs bug
 (if (eq system-type 'windows-nt)
     (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/") t)
+(add-to-list 'package-archives
+             '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
 (package-initialize)
 
@@ -67,8 +68,12 @@
                  ("begin" "$1" "$" "$$" "\\(" "\\["))))
  '(package-selected-packages
    (quote
-    (counsel-projectile counsel-projectile-mode counsel swiper ivy intero haskell-mode delight diminish helm-core helm-projectile yasnippet yasnippet-snippets spaceline auto-org-md flycheck winum dap-mode helm-lsp lsp-java lsp-mode lsp-treemacs lsp-ui treemacs treemacs-magit treemacs-projectile use-package color-theme-sanityinc-solarized helm magit geiser slime org lua-mode paredit js2-mode coffee-mode)))
- '(safe-local-variable-values (quote ((indent-tabs-mode nil))))
+    (spaceline color-theme-sanityinc-solarized js2-mode intero haskell-mode lsp-java dap-mode lsp-treemacs lsp-ui lsp-mode flycheck-rust cargo rust-mode treemacs-magit treemacs-projectile treemacs slime geiser paredit counsel-projectile projectile yasnippet-snippets counsel swiper flycheck magit winum avy delight diminish use-package)))
+ '(safe-local-variable-values
+   (quote
+    ((c-file-offsets
+      (arglist-cont-nonempty . 4))
+     (indent-tabs-mode nil))))
  '(send-mail-function (quote smtpmail-send-it)))
 
 (custom-set-faces
@@ -81,3 +86,4 @@
 (provide 'init)
 ;;; init.el ends here
 
+(put 'downcase-region 'disabled nil)
