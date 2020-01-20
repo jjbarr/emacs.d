@@ -19,8 +19,8 @@
 (use-package spaceline :ensure t
   :config
   (progn
-    (spaceline-emacs-theme)
-    (spaceline-helm-mode)))
+    (require 'spaceline-config)
+    (spaceline-emacs-theme)))
 
 (provide 'chrome-cfg)
 ;;; chrome-cfg.el ends here
