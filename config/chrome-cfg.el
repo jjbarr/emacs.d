@@ -9,10 +9,7 @@
   :config
   (progn
     (define-globalized-minor-mode global-fci-mode fci-mode
-      (lambda ()
-        (if (and buffer-file-name
-                 (display-graphic-p))
-            (fci-mode 1))))
+      (lambda () (fci-mode 1)))
     (global-fci-mode 1)))
 
 ;;gotta make sure my theme is here.
