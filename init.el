@@ -12,9 +12,7 @@
 
 ;;packaging stuff
 (require 'package)
-;hack around emacs bug
-(if (eq system-type 'windows-nt)
-    (setq gnutls-algorithm-priority "NORMAL:-VERS-TLS1.3"))
+
 (add-to-list 'package-archives
              '("melpa-stable" . "http://stable.melpa.org/packages/") t)
 (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
@@ -44,6 +42,7 @@
 (require 'haskell-cfg)
 (require 'js-cfg)
 (require 'org-cfg)
+(require 'tex-cfg)
 (require 'chrome-cfg)
 (require 'gnus-cfg)
 
@@ -68,7 +67,7 @@
                  ("begin" "$1" "$" "$$" "\\(" "\\["))))
  '(package-selected-packages
    (quote
-    (spaceline color-theme-sanityinc-solarized js2-mode intero haskell-mode lsp-java dap-mode lsp-treemacs lsp-ui lsp-mode flycheck-rust cargo rust-mode treemacs-magit treemacs-projectile treemacs slime geiser paredit counsel-projectile projectile yasnippet-snippets counsel swiper flycheck magit winum avy delight diminish use-package)))
+    (auctex spaceline color-theme-sanityinc-solarized js2-mode intero haskell-mode lsp-java dap-mode lsp-treemacs lsp-ui lsp-mode flycheck-rust cargo rust-mode treemacs-magit treemacs-projectile treemacs slime geiser paredit counsel-projectile projectile yasnippet-snippets counsel swiper flycheck magit winum avy delight diminish use-package)))
  '(safe-local-variable-values
    (quote
     ((c-file-offsets
