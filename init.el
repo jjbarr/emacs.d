@@ -65,9 +65,7 @@
    (quote
     (:foreground default :background default :scale 1.3 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
                  ("begin" "$1" "$" "$$" "\\(" "\\["))))
- '(package-selected-packages
-   (quote
-    (auctex org spaceline color-theme-sanityinc-solarized js2-mode intero haskell-mode lsp-java dap-mode lsp-treemacs lsp-ui lsp-mode flycheck-rust cargo rust-mode treemacs-magit treemacs-projectile treemacs slime geiser paredit counsel-projectile projectile yasnippet-snippets counsel swiper flycheck magit winum avy delight diminish use-package)))))
+ '(package-selected-packages (quote (org auctex delight)))
  '(safe-local-variable-values
    (quote
     ((c-file-offsets

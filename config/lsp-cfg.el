@@ -21,12 +21,5 @@
         lsp-ui-sideline-show-diagnostics nil
         lsp-ui-doc-use-webkit nil))
 
-(use-package lsp-treemacs :ensure t
-  :commands lsp-treemacs-errors-list)
-
-(use-package dap-mode :ensure t
-  :config
-  (progn (dap-mode t)
-         (dap-ui-mode t)))
 (provide 'lsp-cfg)
 ;;; lsp-cfg.el ends here
