@@ -68,7 +68,7 @@
                  ("begin" "$1" "$" "$$" "\\(" "\\["))))
  '(package-selected-packages
    (quote
-    (spaceline color-theme-sanityinc-solarized js2-mode intero haskell-mode lsp-java dap-mode lsp-treemacs lsp-ui lsp-mode flycheck-rust cargo rust-mode treemacs-magit treemacs-projectile treemacs slime geiser paredit counsel-projectile projectile yasnippet-snippets counsel swiper flycheck magit winum avy delight diminish use-package)))
+    (auctex org spaceline color-theme-sanityinc-solarized js2-mode intero haskell-mode lsp-java dap-mode lsp-treemacs lsp-ui lsp-mode flycheck-rust cargo rust-mode treemacs-magit treemacs-projectile treemacs slime geiser paredit counsel-projectile projectile yasnippet-snippets counsel swiper flycheck magit winum avy delight diminish use-package)))
  '(safe-local-variable-values
    (quote
     ((c-file-offsets

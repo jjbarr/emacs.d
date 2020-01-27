@@ -60,6 +60,9 @@
 (setq-default tab-width 4)
 (setq-default c-basic-offset tab-width)
 (defvaralias 'cperl-indent-level 'tab-width)
+(setq c-default-style
+      '((java-mode . "java")
+        (other . "k&r")))
 
 ;; ooh, ooh, recursive mini!
 

@@ -3,7 +3,7 @@
 ;; none
 ;;; Code:
 
-;; fill column rule
+;; fill column rule: this is what puts that line up there
 (use-package fill-column-indicator ; fci isn't ensured - not on melpa
   ;;global fci mode--makes FCI DWIM.
   :config
@@ -12,7 +12,7 @@
       (lambda () (fci-mode 1)))
     (global-fci-mode 1)))
 
-;;gotta make sure my theme is here.
+;;If you don't like the gray-on-blue colorscheme, remove this line.
 (use-package color-theme-sanityinc-solarized :ensure t)
 
 ;;Shiiiny
