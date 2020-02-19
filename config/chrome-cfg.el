@@ -16,11 +16,9 @@
 (use-package color-theme-sanityinc-solarized :ensure t)
 
 ;;Shiiiny
-(use-package spaceline :ensure t
-  :config
-  (progn
-    (require 'spaceline-config)
-    (spaceline-emacs-theme)))
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1))
 
 (provide 'chrome-cfg)
 ;;; chrome-cfg.el ends here

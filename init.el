@@ -43,6 +43,9 @@
 (require 'org-cfg)
 (require 'tex-cfg)
 (require 'chrome-cfg)
+(case system-type
+  ((ms-dos windows-nt) nil)
+  (otherwise (require 'site-unix)))
 (require 'gnus-cfg)
 
 ;;automatically added stuff down here
@@ -64,7 +67,9 @@
    (quote
     (:foreground default :background default :scale 1.3 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
                  ("begin" "$1" "$" "$$" "\\(" "\\["))))
- '(package-selected-packages (quote (dap-mode org auctex delight)))
+ '(package-selected-packages
+   (quote
+    (doom-modeline keychain-environment dap-mode org auctex delight)))
  '(safe-local-variable-values
    (quote
     ((c-file-offsets
