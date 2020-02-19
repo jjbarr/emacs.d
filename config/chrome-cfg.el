@@ -18,7 +18,13 @@
 ;;Shiiiny
 (use-package doom-modeline
   :ensure t
-  :init (doom-modeline-mode 1))
+  :init
+  (doom-modeline-mode 1)
+  (setq doom-modeline-height 15)
+  (setq doom-modeline-bar-width 2)
+  ;;hack to ensure we only show icons in graphics mode
+  (add-hook 'focus-in-hook
+            (lambda () (setq doom-modeline-icon (display-graphic-p)))))
 
 (provide 'chrome-cfg)
 ;;; chrome-cfg.el ends here
