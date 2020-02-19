@@ -27,7 +27,6 @@
    (require 'use-package)))
 
 ;;config stuff
-
 (require 'global-cfg)
 (require 'ivy-cfg)
 (require 'docs-cfg)
@@ -65,7 +64,7 @@
    (quote
     (:foreground default :background default :scale 1.3 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
                  ("begin" "$1" "$" "$$" "\\(" "\\["))))
- '(package-selected-packages (quote (org auctex delight)))
+ '(package-selected-packages (quote (dap-mode org auctex delight)))
  '(safe-local-variable-values
    (quote
     ((c-file-offsets

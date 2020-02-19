@@ -21,5 +21,6 @@
         lsp-ui-sideline-show-diagnostics nil
         lsp-ui-doc-use-webkit nil))
 
+
 (provide 'lsp-cfg)
 ;;; lsp-cfg.el ends here
