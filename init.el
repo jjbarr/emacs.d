@@ -69,7 +69,7 @@
                  ("begin" "$1" "$" "$$" "\\(" "\\["))))
  '(package-selected-packages
    (quote
-    (doom-modeline keychain-environment dap-mode org auctex delight)))
+    (yasnippet-snippets geiser paredit diminish treemacs treemacs-magit treemacs-projectile winum with-editor ace-window avy cargo color-theme-sanityinc-solarized company counsel counsel-projectile flycheck flycheck-rust haskell-mode ivy js2-mode lsp-java lsp-mode lsp-ui projectile rust-mode slime use-package doom-modeline keychain-environment dap-mode org auctex delight)))
  '(safe-local-variable-values
    (quote
     ((c-file-offsets

@@ -4,7 +4,7 @@
 ;;; Code:
 
 (use-package lsp-java :ensure t :after lsp)
-(use-package dap-java :after lsp-java)
+;(use-package dap-java :after lsp-java)
 
 
 (provide 'java-cfg)
