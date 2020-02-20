@@ -22,8 +22,7 @@
 (bind-key "\C-w" 'backward-kill-word)
 (bind-key "\C-c\C-k" 'kill-region)
 (bind-key "\C-o" 'occur)
-(bind-key (kbd "C-c C-/") 'comment-region)
-(bind-key (kbd "C-c C-\\") 'uncomment-region)
+(bind-key (kbd "C-c C-/") 'comment-or-uncomment-region)
 ;;mandatory packages for use-package features
 
 (use-package diminish :ensure t)
