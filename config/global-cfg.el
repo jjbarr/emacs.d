@@ -55,14 +55,31 @@
 ;;fill column is 70 by default for some reason
 (setq-default fill-column 80)
 
-;;tabs and spaces blah blah blah
+;;tabs, spaces, and indentation. I like spaces for some languages and tabs for
+;;others. But when I *do* use tabs, I use smart-tabs-mode to make them not suck.
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq-default c-basic-offset tab-width)
 (defvaralias 'cperl-indent-level 'tab-width)
-(setq c-default-style
-      '((java-mode . "java")
-        (other . "k&r")))
+(setq-default c-default-style
+              '((java-mode . "java")
+                (other . "k&r")))
+
+(defun hook-tabs (hooks)
+  "Add a hook to each of HOOKS to enable tabindent."
+  (dolist (hook hooks)
+    (add-hook hook
+              (lambda () (setq indent-tabs-mode t)))))
+
+(hook-tabs '(c-mode-common-hook rust-mode-hook cperl-mode-hook js2-mode-hook
+                                rust-mode-hook))
+
+(use-package smart-tabs-mode :ensure t
+  :diminish
+  :config
+  (smart-tabs-add-language-support rust rust-mode-hook
+    ((rust-mode-indent-line . rust-indent-offset)))
+  (smart-tabs-insinuate 'c 'java 'javascript 'cperl 'rust))
 
 ;; ooh, ooh, recursive mini!
 
