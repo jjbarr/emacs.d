@@ -5,12 +5,11 @@
 
 ;;get the load path up...
 (push "~/.emacs.d/elisp" load-path)
-(push "~/.emacs.d/elisp/emacs-async" load-path)
 (push "~/.emacs.d/config/" load-path)
 
 ;;and now we're in business
 
-;;packaging stuff
+;;packaging bootstrap
 (require 'package)
 
 (add-to-list 'package-archives
@@ -43,7 +42,7 @@
 (require 'org-cfg)
 (require 'tex-cfg)
 (require 'chrome-cfg)
-(case system-type
+(cl-case system-type
   ((ms-dos windows-nt) nil)
   (otherwise (require 'site-unix)))
 (require 'gnus-cfg)
