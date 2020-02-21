@@ -21,6 +21,6 @@
         lsp-ui-sideline-show-diagnostics nil
         lsp-ui-doc-use-webkit nil))
 
-
+(use-package dap-mode :ensure t)
 (provide 'lsp-cfg)
 ;;; lsp-cfg.el ends here

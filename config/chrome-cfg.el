@@ -12,8 +12,16 @@
       (lambda () (fci-mode 1)))
     (global-fci-mode 1)))
 
-;;If you don't like the gray-on-blue colorscheme, remove this line.
-(use-package color-theme-sanityinc-solarized :ensure t)
+;;Doom's solarized is a good one.
+(use-package doom-themes :ensure t
+  :config
+  (setq doom-themes-enable-bold t
+        doom-themes-enable-italic t)
+  (load-theme 'doom-solarized-dark t)
+  
+  (setq doom-themes-treemacs-theme "doom-colors")
+  (doom-themes-treemacs-config)
+  (doom-themes-org-config))
 
 ;;Shiiiny
 (use-package doom-modeline
