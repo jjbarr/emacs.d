@@ -25,6 +25,8 @@
    (package-install 'use-package)
    (require 'use-package)))
 
+;;reqs
+(require 'cl-lib)
 ;;config stuff
 (require 'global-cfg)
 (require 'ivy-cfg)

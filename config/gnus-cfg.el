@@ -2,6 +2,8 @@
 ;;; Commentary:
 ;; none at present
 ;;; Code:
+(require 'use-package)
+
 (use-package gnus
   :after (ivy) ;my mailconf uses helm internally for stuff
   :config
@@ -32,6 +34,7 @@
                   (nnmail-expiry-target "nnimap+school:[Gmail]/All Mail")
                   (nnmail-expiry-wait immediate))))
   (setq gnus-ignored-newsgroups "^to\\.\\|^[0-9. ]+\\( \\|$\\)\\|^[\"]\"[#'()]"))
+
 (use-package smtpmail
   :config
   (setq smtpmail-smtp-server "smtp.gmail.com"

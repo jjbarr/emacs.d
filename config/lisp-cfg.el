@@ -1,8 +1,7 @@
 ;;; lisp-cfg.el -- config for lisp
 ;;; Commentary:
 ;;n/a
-;;; Code:
-
+;;; 
 (defun insert-lambda-character ()
   "Puts a lambda character where your cursor is."
   (interactive)

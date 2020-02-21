@@ -22,5 +22,6 @@
         lsp-ui-doc-use-webkit nil))
 
 (use-package dap-mode :ensure t)
+(use-package dap-lldb :after dap-mode)
 (provide 'lsp-cfg)
 ;;; lsp-cfg.el ends here

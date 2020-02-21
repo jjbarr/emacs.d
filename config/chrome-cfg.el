@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;; none
 ;;; Code:
-
+(require 'use-package)
 ;; fill column rule: this is what puts that line up there
 (use-package fill-column-indicator ; fci isn't ensured - not on melpa
   ;;global fci mode--makes FCI DWIM.
