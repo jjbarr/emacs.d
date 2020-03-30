@@ -18,7 +18,6 @@
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic t)
   (load-theme 'doom-solarized-dark t)
-  
   (setq doom-themes-treemacs-theme "doom-colors")
   (doom-themes-treemacs-config)
   (doom-themes-org-config))
@@ -36,4 +35,3 @@
 
 (provide 'chrome-cfg)
 ;;; chrome-cfg.el ends here
-
