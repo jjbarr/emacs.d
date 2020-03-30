@@ -6,7 +6,5 @@
 (use-package keychain-environment :ensure t
   :config (keychain-refresh-environment))
 
-;;I don't have Evince...
-(push '(output-pdf "Okular") TeX-view-program-selection)
 (provide 'site-unix)
 ;;; site-unix.el ends here

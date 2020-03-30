@@ -71,8 +71,7 @@
     (add-hook hook
               (lambda () (setq indent-tabs-mode t)))))
 
-(hook-tabs '(c-mode-common-hook rust-mode-hook cperl-mode-hook js2-mode-hook
-                                rust-mode-hook))
+(hook-tabs '(c-mode-common-hook cperl-mode-hook js2-mode-hook))
 
 (use-package smart-tabs-mode :ensure t
   :diminish
