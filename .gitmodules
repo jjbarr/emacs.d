@@ -1,0 +1,3 @@
+[submodule "elisp/rgbds-mode"]
+	path = elisp/rgbds-mode
+	url = https://github.com/japanoise/rgbds-mode

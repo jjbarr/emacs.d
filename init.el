@@ -4,8 +4,11 @@
 ;;; Code:
 
 ;;get the load path up...
-(push "~/.emacs.d/elisp" load-path)
-(push "~/.emacs.d/config/" load-path)
+(let ((elisp-dir (concat user-emacs-directory "elisp/")))
+  (push elisp-dir load-path)
+  (let ((default-directory elisp-dir))
+    (normal-top-level-add-subdirs-to-load-path)))
+(push (concat user-emacs-directory "config/") load-path)
 
 ;;and now we're in business
 
@@ -44,6 +47,7 @@
 (require 'org-cfg)
 (require 'tex-cfg)
 (require 'chrome-cfg)
+(require 'gb-cfg)
 (cl-case system-type
   ((ms-dos windows-nt) nil)
   (otherwise (require 'site-unix)))
@@ -73,7 +77,7 @@
                  ("begin" "$1" "$" "$$" "\\(" "\\["))))
  '(package-selected-packages
    (quote
-    (doom-themes smart-tabs-mode yasnippet-snippets geiser paredit diminish treemacs treemacs-magit treemacs-projectile winum with-editor ace-window avy cargo color-theme-sanityinc-solarized company counsel counsel-projectile flycheck flycheck-rust haskell-mode ivy js2-mode lsp-java lsp-mode lsp-ui projectile rust-mode slime use-package doom-modeline keychain-environment dap-mode org auctex delight)))
+    (mwim graphviz-dot-mode meson-mode doom-themes smart-tabs-mode yasnippet-snippets geiser paredit diminish treemacs treemacs-magit treemacs-projectile winum with-editor ace-window avy cargo color-theme-sanityinc-solarized company counsel counsel-projectile flycheck flycheck-rust haskell-mode ivy js2-mode lsp-java lsp-mode lsp-ui projectile rust-mode slime use-package doom-modeline keychain-environment dap-mode org auctex delight)))
  '(pdf-view-midnight-colors (cons "#839496" "#002b36"))
  '(rustic-ansi-faces
    ["#002b36" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#839496"])
