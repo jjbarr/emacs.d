@@ -18,7 +18,6 @@
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
 (add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
-(package-initialize)
 
 ;;set up use-package
 (condition-case nil
@@ -51,6 +50,16 @@
   ((ms-dos windows-nt) nil)
   (otherwise (require 'site-unix)))
 (require 'gnus-cfg)
+
+;;odds and ends that I can't be assed to give their own file
+
+(defun fix-asm-mode ()
+  "Substantially unfuck `asm-mode`."
+  (local-unset-key (vector asm-comment-char))
+  ;; asm-mode sets it locally to nil, to "stay closer to the old TAB behaviour".
+  (setq tab-always-indent (default-value 'tab-always-indent)))
+
+(add-hook 'asm-mode-hook #'fix-asm-mode)
 
 ;;automatically added stuff down here
 (setq magit-last-seen-setup-instructions "1.4.0")

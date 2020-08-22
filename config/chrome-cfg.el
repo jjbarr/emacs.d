@@ -4,13 +4,8 @@
 ;;; Code:
 (require 'use-package)
 ;; fill column rule: this is what puts that line up there
-(use-package fill-column-indicator ; fci isn't ensured - not on melpa
-  ;;global fci mode--makes FCI DWIM.
-  :config
-  (progn
-    (define-globalized-minor-mode global-fci-mode fci-mode
-      (lambda () (fci-mode 1)))
-    (global-fci-mode 1)))
+;; fci is dead, long live internal dfci
+(global-display-fill-column-indicator-mode 1)
 
 ;;Doom's solarized is a good one.
 (use-package doom-themes :ensure t
