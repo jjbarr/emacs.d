@@ -23,17 +23,27 @@
 (bind-key "\C-c\C-k" 'kill-region)
 (bind-key "\C-o" 'occur)
 (bind-key (kbd "C-c C-/") 'comment-or-uncomment-region)
+
+;;;SUPER IMPORTANT ALWAYS-USE PACKAGES
+
 ;;mandatory packages for use-package features
 
 (use-package diminish :ensure t)
 (use-package delight :ensure t)
 
+;; Everyone should always install editorconfig, including me
 
-;;;Nav stuff goes here
+(use-package editorconfig :ensure t
+  :diminish
+  :config (editorconfig-mode 1))
+
+;;;Nav stuff
 
 ;;ace-jump should always be on
 (use-package avy :ensure t
-  :bind ("C-c C-SPC" . avy-goto-char))
+  :bind (("C-:" . avy-goto-char)
+         ("M-g g" . avy-goto-line)
+         ("M-g w" . avy-goto-word-1)))
 
 ;;winum is really freaking handy
 (use-package winum :ensure t
@@ -42,10 +52,23 @@
   (winum-mode)
   (winum-set-keymap-prefix (kbd "M-o")))
 
+;; dumb jump should be an xref fallback in case ggt/tags/whatever isn't present.
+
+(use-package dumb-jump :ensure t
+  :init
+  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate 95))
+
+;; iedit is sorta navigational...
+
+(use-package iedit :ensure t
+  :bind ("C-;" . iedit-mode))
+
+;;; Generally really useful modes
+
 ;;gotta have git
 (use-package magit :ensure t)
 
-;;;And flycheck is here
+;;;And flycheck
 (use-package flycheck :ensure t
   :diminish
   :config (global-flycheck-mode))
@@ -55,8 +78,8 @@
 ;;fill column is 70 by default for some reason
 (setq-default fill-column 80)
 
-;;tabs, spaces, and indentation. I like spaces for some languages and tabs for
-;;others. But when I *do* use tabs, I use smart-tabs-mode to make them not suck.
+;;tabs, spaces, and indentation;
+;;Fuck hard tabs
 (setq-default indent-tabs-mode nil)
 (setq-default tab-width 4)
 (setq-default c-basic-offset tab-width)
@@ -64,21 +87,6 @@
 (setq-default c-default-style
               '((java-mode . "java")
                 (other . "k&r")))
-
-(defun hook-tabs (hooks)
-  "Add a hook to each of HOOKS to enable tabindent."
-  (dolist (hook hooks)
-    (add-hook hook
-              (lambda () (setq indent-tabs-mode t)))))
-
-(hook-tabs '(c-mode-common-hook cperl-mode-hook js2-mode-hook))
-
-(use-package smart-tabs-mode :ensure t
-  :diminish
-  :config
-  (smart-tabs-add-language-support rust rust-mode-hook
-    ((rust-mode-indent-line . rust-indent-offset)))
-  (smart-tabs-insinuate 'c 'java 'javascript 'cperl 'rust))
 
 ;; ooh, ooh, recursive mini!
 
@@ -88,10 +96,6 @@
 (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-
-;;make dired play nice
-(when (require 'dired-aux)
-  (require 'dired-async))
 
 ;;last but not least
 (provide 'global-cfg)
