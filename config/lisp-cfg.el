@@ -27,7 +27,10 @@
 (use-package slime :ensure t
   :config
   (progn
-    (setq inferior-lisp-program "sbcl --dynamic-space-size 2048")
+    (setq inferior-lisp-program
+          (if (eq system-type 'windows-nt)
+              (expand-file-name "~/bin/ccl/wx86cl64.exe")
+              "sbcl --dynamic-space-size 2048"))
     (setq slime-contribs '(slime-fancy)))
   :commands slime)
 
