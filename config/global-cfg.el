@@ -97,6 +97,9 @@
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
+;; tramp-term is super useful if you ever need to work with remote servers.
+(require 'tramp-term)
+
 ;;last but not least
 (provide 'global-cfg)
 
