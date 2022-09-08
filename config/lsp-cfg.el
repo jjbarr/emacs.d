@@ -29,6 +29,7 @@
 
 (use-package dap-mode
   :ensure t
+  :bind (("C-c C-b" . dap-breakpoint-toggle))
   :config
   (dap-ui-mode)
   (dap-ui-controls-mode 1)
