@@ -24,9 +24,18 @@
   (doom-modeline-mode 1)
   (setq doom-modeline-height 15)
   (setq doom-modeline-bar-width 2)
+  (doom-modeline-def-modeline 'main
+    '(bar matches buffer-info remote-host buffer-position parrot selection-info)
+    '(misc-info minor-modes input-method buffer-encoding major-mode
+                process vcs checker "  "))
+  
   ;;hack to ensure we only show icons in graphics mode
   (add-hook 'focus-in-hook
             (lambda () (setq doom-modeline-icon (display-graphic-p)))))
+
+;; fix the damn fonts
+(set-face-attribute 'default t :font "Terminus-12")
+(add-to-list 'default-frame-alist '(font . "Terminus-12"))
 
 (provide 'chrome-cfg)
 ;;; chrome-cfg.el ends here
