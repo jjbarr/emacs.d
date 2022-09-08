@@ -13,18 +13,33 @@
     (setq lsp-rust-server 'rust-analyzer)
     (setq lsp-headerline-breadcrumb-enable nil))
   :hook ((java-mode . lsp)
-         (rust-mode . lsp))
+         (rustic-mode . lsp))
   :commands lsp)
 
 (use-package lsp-ui :ensure t
   :hook ((lsp-mode . lsp-ui-mode))
   :init
   (setq lsp-ui-flycheck-live-reporting nil
-        lsp-ui-sideline-enable nil
+        lsp-ui-sideline-show-hover t
+        lsp-ui-sideline-delay 2
+        lsp-ui-sideline-show-code-actions nil
         lsp-ui-sideline-show-diagnostics nil
         lsp-ui-doc-enable nil)
   :bind (("H-d" . lsp-ui-doc-glance)))
 
-
+(use-package dap-mode
+  :ensure t
+  :config
+  (dap-ui-mode)
+  (dap-ui-controls-mode 1)
+  (require 'dap-gdb-lldb)
+  (dap-gdb-lldb-setup)
+  (dap-register-debug-template "Rust::GDB Run configuration"
+                               (list :type "gdb"
+                                     :request "launch"
+                                     :name "GDB::Run"
+                                     :gdbpath "rust-gdb"
+                                     :target nil
+                                     :cwd nil)))
 (provide 'lsp-cfg)
 ;;; lsp-cfg.el ends here

@@ -52,7 +52,7 @@
   ((ms-dos windows-nt) nil)
   (otherwise (require 'site-unix)))
 (require 'gnus-cfg)
-
+(require 'company-cfg)
 ;;odds and ends that I can't be assed to give their own file
 
 (defun fix-asm-mode ()

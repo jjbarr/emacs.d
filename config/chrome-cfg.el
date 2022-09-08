@@ -7,6 +7,9 @@
 ;; fci is dead, long live internal dfci
 (global-display-fill-column-indicator-mode 1)
 
+; for fuck's sake...
+(use-package all-the-icons :ensure t)
+
 ;;Doom's solarized is a good one.
 (use-package doom-themes :ensure t
   :config
