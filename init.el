@@ -47,6 +47,7 @@
 (require 'tex-cfg)
 (require 'chrome-cfg)
 (require 'promela-cfg)
+(require 'py-cfg)
 (cl-case system-type
   ((ms-dos windows-nt) nil)
   (otherwise (require 'site-unix)))
