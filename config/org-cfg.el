@@ -12,9 +12,24 @@
       (setq org-directory (substitute-in-file-name "$HOMEPATH/org")))
   (setq org-agenda-files (list org-directory))
   (setq org-default-notes-file (concat org-directory "/todo.org"))
+  (require 'ox-latex)
+  (add-to-list 'org-latex-packages-alist '("" "minted"))
+  (setq org-latex-listings 'minted)
+  (setq
+   org-latex-pdf-process
+   '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+     "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+     "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+  (setq org-src-fontify-natively t)
   (org-babel-do-load-languages
    'org-babel-load-languages
-   '((dot . t)))
+   '((dot . t)
+     (C . t)
+     (js . t)
+     (lisp . t)
+     (python . t)
+     (scheme . t)
+     (awk . t)))
   :mode ("\\.org\\'" . org-mode)
   :bind (("C-c l" . org-store-link)
          ("C-c a" . org-agenda)
