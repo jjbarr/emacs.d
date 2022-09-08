@@ -5,7 +5,7 @@
   :ensure t
   :demand t
   :after python
-  :hook (python-mode . python-black-on-save-mode-enable-dwim))
+  :hook (python-mode . python-black-on-save-mode))
 (use-package python-isort
   :ensure t
   :after python
