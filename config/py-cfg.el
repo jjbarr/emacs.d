@@ -5,7 +5,9 @@
   :ensure t
   :demand t
   :after python
-  :hook (python-mode . python-black-on-save-mode))
+  :hook (python-mode . python-black-on-save-mode)
+  :config
+  (setq python-black-extra-args '("--line-length" "80")))
 (use-package python-isort
   :ensure t
   :after python
