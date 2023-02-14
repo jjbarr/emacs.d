@@ -1,6 +1,7 @@
 ;;; py-cfg --- python-related configuration
 ;;; Commentary:
 ;;; Code:
+<<<<<<< HEAD
 (use-package python-black
   :ensure t
   :demand t
@@ -12,6 +13,9 @@
   :ensure t
   :after python
   :hook (python-mode . python-isort-on-save-mode))
+=======
+
+>>>>>>> a03476f (no more black!)
 (provide 'py-cfg)
 ;;; py-cfg.el ends here
 
