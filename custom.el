@@ -8,6 +8,13 @@
    ["#002b36" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#839496"])
  '(custom-safe-themes
    '("5d09b4ad5649fea40249dd937eaaa8f8a229db1cec9a1a0ef0de3ccf63523014" "bf387180109d222aee6bb089db48ed38403a1e330c9ec69fe1f52460a8936b66" default))
+ '(face-font-family-alternatives
+   '(("Monospace" "courier" "fixed")
+     ("Monospace Serif" "Courier 10 Pitch" "Consolas" "Courier Std" "FreeMono" "Nimbus Mono L" "courier" "fixed")
+     ("courier" "CMU Typewriter Text" "fixed")
+     ("Sans Serif" "helv" "helvetica" "arial" "fixed")
+     ("helv" "helvetica" "arial" "fixed")
+     ("Terminus (TTF)" "Terminus")))
  '(fci-rule-color "#405A61")
  '(inhibit-startup-screen t)
  '(jdee-db-active-breakpoint-face-colors (cons "#073642" "#268bd2"))
