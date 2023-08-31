@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;; none.
 ;;; Code:
-(set-face-attribute 'default nil :font "Terminus" :height 140)
+(set-face-attribute 'default nil :font "Terminus" :height 120)
 
 ;;; font-cfg.el ends here
 
