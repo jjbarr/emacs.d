@@ -28,25 +28,32 @@
 
 ;;mandatory packages for use-package features
 
-(use-package diminish :ensure t)
-(use-package delight :ensure t)
+(use-package diminish :straight t)
+(use-package delight :straight t)
 
 ;; Everyone should always install editorconfig, including me
 
-(use-package editorconfig :ensure t
+(use-package editorconfig :straight t
   :diminish
   :config (editorconfig-mode 1))
 
 ;;;Nav stuff
 
+;; When you need it you need it
+(use-package multiple-cursors :straight t
+  :bind (("C-c m" . mc/edit-lines)
+         ("C->" . mc/mark-next-like-this)
+         ("C-<" . mc/mark-previous-like-this)
+         ("C-c C-<" . mc/mark-all-like-this)))
+
 ;;ace-jump should always be on
-(use-package avy :ensure t
+(use-package avy :straight t
   :bind (("C-:" . avy-goto-char)
          ("M-g g" . avy-goto-line)
          ("M-g w" . avy-goto-word-1)))
 
 ;;winum is really freaking handy
-(use-package winum :ensure t
+(use-package winum :straight t
   :config
   (setq winum-auto-setup-mode-line nil)
   (winum-mode)
@@ -54,22 +61,22 @@
 
 ;; dumb jump should be an xref fallback in case ggt/tags/whatever isn't present.
 
-(use-package dumb-jump :ensure t
+(use-package dumb-jump :straight t
   :init
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate 95))
 
 ;; iedit is sorta navigational...
 
-(use-package iedit :ensure t
+(use-package iedit :straight t
   :bind ("C-;" . iedit-mode))
 
 ;;; Generally really useful modes
 
 ;;gotta have git
-(use-package magit :ensure t)
+(use-package magit :straight t)
 
 ;;;And flycheck
-(use-package flycheck :ensure t
+(use-package flycheck :straight t
   :diminish
   :config (global-flycheck-mode))
 
@@ -98,9 +105,6 @@
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; tramp-term is super useful if you ever need to work with remote servers.
-(require 'tramp-term)
-
-;;last but not least
-(provide 'global-cfg)
+(use-package tramp-term :straight t)
 
 ;;; global-cfg.el ends here

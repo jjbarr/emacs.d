@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;none yet.
 ;;; Code:
-(use-package rustic :ensure t
+(use-package rustic :straight t
   :bind (:map rustic-mode-map
               ("M-j" . lsp-ui-imenu)
               ("M-?" . lsp-find-references)
@@ -15,5 +15,4 @@
   :config
   (setq rustic-format-on-save t))
 
-(provide 'rust-cfg)
 ;;; rust-cfg.el ends here

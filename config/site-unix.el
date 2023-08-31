@@ -2,9 +2,7 @@
 ;;; Commentary:
 ;;; Code:
 
-(require 'gnus-cfg)
-(use-package keychain-environment :ensure t
+(use-package keychain-environment :straight t
   :config (keychain-refresh-environment))
 
-(provide 'site-unix)
 ;;; site-unix.el ends here

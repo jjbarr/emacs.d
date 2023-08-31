@@ -3,7 +3,7 @@
 ;;none
 ;;; Code:
 (require 'use-package)
-(use-package treemacs :ensure t
+(use-package treemacs :straight t
   :defer t
   :init
   (with-eval-after-load 'winum
@@ -28,12 +28,11 @@
         ("C-x t C-f" . treemacs-find-file)
         ("C-x t M-t" . treemacs-find-tag)))
 
-(use-package treemacs-projectile :ensure t
+(use-package treemacs-projectile :straight t
   :after treemacs projectile
   :bind (("C-c o p" . treemacs-projectile)))
 
-(use-package treemacs-magit :ensure t
+(use-package treemacs-magit :straight t
   :after treemacs magit)
 
-(provide 'treemacs-cfg)
 ;;; treemacs-cfg.el ends here

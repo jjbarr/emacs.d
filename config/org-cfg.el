@@ -3,10 +3,9 @@
 ;; I'm gonna fill this out later
 ;;; Code:
 
-(use-package graphviz-dot-mode :ensure t
+(use-package graphviz-dot-mode :straight t
   :config (setq graphviz-dot-indent-width 4))
-(use-package org :ensure t
-  :pin "org"
+(use-package org :straight t
   :config
   (if (eq system-type 'windows-nt)
       (setq org-directory (substitute-in-file-name "$HOMEPATH/org")))
@@ -35,5 +34,5 @@
          ("C-c a" . org-agenda)
          ("C-c c" . org-capture)
          ("C-c b" . org-switchb)))
-(provide 'org-cfg)
+
 ;;; org-cfg.el ends here

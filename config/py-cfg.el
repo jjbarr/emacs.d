@@ -1,2 +1,1 @@
-(provide 'py-cfg)
 

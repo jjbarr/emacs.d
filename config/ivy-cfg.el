@@ -1,10 +1,10 @@
 ;;; ivy-cfg.el -- experimental ivy config
 ;;; Commentary:
 ;;; Code:
-(use-package swiper :ensure t
+(use-package swiper :straight t
   :bind (("C-s" . swiper)
          ("C-r" . swiper-backward)))
-(use-package counsel :ensure t
+(use-package counsel :straight t
   :bind (("M-x" . counsel-M-x)
          ("C-x C-f" . counsel-find-file)
          ("<f1> f" . counsel-describe-function)
@@ -18,7 +18,7 @@
          ("C-x l" . counsel-locate)
          :map minibuffer-local-map
          ("C-r" . counsel-minibuffer-history)))
-(use-package ivy :ensure t
+(use-package ivy :straight t
   :diminish
   :config
   (ivy-mode 1)
@@ -28,6 +28,6 @@
          ("<f6>" . ivy-resume)
          :map minibuffer-local-map
          ("C-'" . ivy-avy)))
-(provide 'ivy-cfg)
+
 ;;; ivy-cfg.el ends here
 

@@ -3,11 +3,10 @@
 ;; none
 ;;; Code:
 
-(use-package yasnippet-snippets :ensure t)
-(use-package yasnippet :ensure t
+(use-package yasnippet-snippets :straight t)
+(use-package yasnippet :straight t
   :diminish yas-minor-mode
   :config (yas-global-mode 1))
 
-(provide 'yas-cfg)
 
 ;;; yas-cfg.el ends here

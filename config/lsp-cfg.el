@@ -3,7 +3,7 @@
 ;;...yeah.
 ;;; Code:
 
-(use-package lsp-mode :ensure t
+(use-package lsp-mode :straight t
   :init
   (progn
     (setq lsp-prefer-flymake nil)
@@ -16,7 +16,7 @@
          (rustic-mode . lsp))
   :commands lsp)
 
-(use-package lsp-ui :ensure t
+(use-package lsp-ui :straight t
   :hook ((lsp-mode . lsp-ui-mode))
   :init
   (setq lsp-ui-flycheck-live-reporting nil
@@ -28,7 +28,7 @@
   :bind (("H-d" . lsp-ui-doc-glance)))
 
 (use-package dap-mode
-  :ensure t
+  :straight t
   :bind (("C-c C-b" . dap-breakpoint-toggle))
   :config
   (dap-ui-mode)
@@ -42,5 +42,5 @@
                                      :gdbpath "rust-gdb"
                                      :target nil
                                      :cwd nil)))
-(provide 'lsp-cfg)
+
 ;;; lsp-cfg.el ends here

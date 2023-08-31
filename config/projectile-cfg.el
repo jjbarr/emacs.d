@@ -2,7 +2,7 @@
 ;;; Commentary:
 ;;none
 ;;; Code:
-(use-package projectile :ensure t
+(use-package projectile :straight t
   :demand t
   :diminish projectile-mode
   :config
@@ -14,10 +14,9 @@
           '("~/projects")))
   (projectile-mode))
 
-(use-package counsel-projectile :ensure t
+(use-package counsel-projectile :straight t
   :demand t
   :config
   (counsel-projectile-mode))
 
-(provide 'projectile-cfg)
 ;;; projectile-cfg.el ends here

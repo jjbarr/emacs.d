@@ -4,55 +4,57 @@
 ;;; Code:
 
 ;;get the load path up...
-(let ((elisp-dir (concat user-emacs-directory "elisp/")))
-  (push elisp-dir load-path)
-  (let ((default-directory elisp-dir))
-    (normal-top-level-add-subdirs-to-load-path)))
-(push (concat user-emacs-directory "config/") load-path)
+(push (expand-file-name "config/" user-emacs-directory) load-path)
 
 ;;and now we're in business
 
+
 ;;packaging bootstrap
-(require 'package)
+;; we've using straight now because I am TIRED of use-package sucking.
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el"
+                         user-emacs-directory))
+      (bootstrap-version 6))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/radian-software/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
 
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t)
-(add-to-list 'package-archives '("org" . "https://orgmode.org/elpa/") t)
-
-;;set up use-package
-(condition-case nil
-    (require 'use-package)
-  (file-error
-   (package-refresh-contents)
-   (package-install 'use-package)
-   (require 'use-package)))
+;; and bootstrap use-package as well
+(straight-use-package 'use-package)
 
 ;;reqs
 (require 'cl-lib)
 ;;config stuff
-(require 'global-cfg)
-(require 'ivy-cfg)
-(require 'docs-cfg)
-(require 'font-cfg)
-(require 'yas-cfg)
-(require 'projectile-cfg)
-(require 'lisp-cfg)
-(require 'treemacs-cfg)
-(require 'rust-cfg)
-(require 'lsp-cfg)
-(require 'java-cfg)
-(require 'haskell-cfg)
-(require 'js-cfg)
-(require 'org-cfg)
-(require 'tex-cfg)
-(require 'chrome-cfg)
-(require 'promela-cfg)
-(require 'py-cfg)
+;;EMACS CONFIGURATION
+(load "global-cfg")
+(load "ivy-cfg")
+(load "treemacs-cfg")
+(load "yas-cfg")
+(load "org-cfg")
+(load "projectile-cfg")
+(load "company-cfg")
+(load "chrome-cfg")
+(load "font-cfg")
 (cl-case system-type
   ((ms-dos windows-nt) nil)
-  (otherwise (require 'site-unix)))
-(require 'gnus-cfg)
-(require 'company-cfg)
+  (otherwise (load "site-unix")))
+
+;; PER-LANGUAGE CONFIGURATION
+(load "lisp-cfg")
+(load "rust-cfg")
+(load "lsp-cfg")
+(load "java-cfg")
+(load "haskell-cfg")
+(load "js-cfg")
+(load "tex-cfg")
+(load "py-cfg")
+
 ;;odds and ends that I can't be assed to give their own file
 
 (defun fix-asm-mode ()

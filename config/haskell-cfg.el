@@ -2,8 +2,7 @@
 ;;; Commentary:
 ;; none.
 ;;; Code:
-(use-package haskell-mode :ensure t
+(use-package haskell-mode :straight t
   :mode "\\.hs\\'")
 
-(provide 'haskell-cfg)
 ;;; haskell-cfg.el ends here
