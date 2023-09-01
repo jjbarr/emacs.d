@@ -17,6 +17,7 @@
   ;; we shouldn't really need to do this test...
   ;; but we do, or my font size gets reset.
   ;; It's a bug in doom or in emacs themes. Honestly not sure which.
+  (remove-hook 'doom-load-theme-hook #'doom-themes-treemacs-config)
   (if (not (member 'doom-solarized-dark custom-enabled-themes))
       (load-theme 'doom-solarized-dark t))
   (setq doom-themes-treemacs-theme "doom-colors")
