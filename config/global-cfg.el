@@ -37,7 +37,6 @@
   :diminish
   :config (editorconfig-mode 1))
 
-;;;Nav stuff
 
 ;; When you need it you need it
 (use-package multiple-cursors :straight t
@@ -45,6 +44,7 @@
          ("C->" . mc/mark-next-like-this)
          ("C-<" . mc/mark-previous-like-this)
          ("C-c C-<" . mc/mark-all-like-this)))
+
 
 ;;ace-jump should always be on
 (use-package avy :straight t
