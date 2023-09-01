@@ -52,6 +52,7 @@
 (load "yas-cfg")
 (load "org-cfg")
 (load "projectile-cfg")
+(load "treemacs-cfg")
 (load "company-cfg")
 (load "chrome-cfg")
 (load "font-cfg")
