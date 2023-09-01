@@ -26,15 +26,11 @@
 ;;Shiiiny
 (use-package doom-modeline
   :straight t
+  :after (nerd-icons)
   :init
   (doom-modeline-mode 1)
   (setq doom-modeline-height 20)
   (setq doom-modeline-bar-width 2)
-  (doom-modeline-def-modeline 'main
-    '(bar matches buffer-info remote-host buffer-position parrot selection-info)
-    '(misc-info minor-modes input-method buffer-encoding major-mode
-                process vcs checker "  "))
-  
   ;;hack to ensure we only show icons in graphics mode
   (add-hook 'focus-in-hook
             (lambda () (setq doom-modeline-icon (display-graphic-p)))))
