@@ -2,22 +2,11 @@
 ;;; Commentary:
 ;;n/a
 ;;; 
-(defun insert-lambda-character ()
-  "Puts a lambda character where your cursor is."
-  (interactive)
-  (insert "λ"))
-
-(global-set-key "\C-l" 'insert-lambda-character) ;always handy for lisp.
-
-;;paredit stuff
-(use-package paredit :straight t
-  :diminish
-  :hook ((emacs-lisp-mode . enable-paredit-mode)
-         (eval-expression-minibuffer-setup . enable-paredit-mode)
-         (ielm-mode . enable-paredit-mode)
-         (lisp-mode . enable-paredit-mode)
-         (lisp-interaction-mode . enable-paredit-mode)
-         (scheme-mode . enable-paredit-mode)))
+(use-package lispy :straight t
+  :hook (((emacs-lisp-mode
+           lisp-mode scheme-mode ielm-mode
+           lisp-interaction-mode eval-expression-minibuffer-setup)
+          . lispy-mode)))
 
 ;;geiser
 (use-package geiser :straight t
