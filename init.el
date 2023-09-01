@@ -26,7 +26,7 @@
 
 ;; and bootstrap use-package as well
 (straight-use-package 'use-package)
-
+(require 'use-package)
 ;;reqs
 (require 'cl-lib)
 
@@ -48,9 +48,7 @@
 ;;config stuff
 ;;EMACS CONFIGURATION
 (load "global-cfg")
-;(load "ivy-cfg")
 (load "vertico-cfg")
-(load "treemacs-cfg")
 (load "yas-cfg")
 (load "org-cfg")
 (load "projectile-cfg")
