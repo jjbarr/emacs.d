@@ -13,10 +13,4 @@
             (list (substitute-in-file-name "$HOMEPATH/Projects"))
           '("~/projects")))
   (projectile-mode))
-
-(use-package counsel-projectile :straight t
-  :demand t
-  :config
-  (counsel-projectile-mode))
-
 ;;; projectile-cfg.el ends here
