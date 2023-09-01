@@ -8,7 +8,6 @@
 
 ;;and now we're in business
 
-
 ;;packaging bootstrap
 ;; we've using straight now because I am TIRED of use-package sucking.
 (defvar bootstrap-version)
@@ -30,10 +29,27 @@
 
 ;;reqs
 (require 'cl-lib)
+
+;; We have to do this for certain actions that need to be run after the UI
+;; loads. Why isn't this built in? x.x
+
+(defun apply-if-gui (&rest action)
+  "Do specified ACTION if we're in a gui regardless of daemon or not."
+  (if (daemonp)
+      (add-hook 'after-make-frame-functions
+                (lambda (frame)
+                  (select-frame frame)
+                  (if (display-graphic-p frame)
+                      (apply action))))
+    (if (display-graphic-p)
+        (apply action))))
+
+
 ;;config stuff
 ;;EMACS CONFIGURATION
 (load "global-cfg")
-(load "ivy-cfg")
+;(load "ivy-cfg")
+(load "vertico-cfg")
 (load "treemacs-cfg")
 (load "yas-cfg")
 (load "org-cfg")
@@ -72,6 +88,4 @@
 
 ;;magit is annoying sometimes
 (setq magit-last-seen-setup-instructions "1.4.0")
-
-(provide 'init)
 ;;; init.el ends here

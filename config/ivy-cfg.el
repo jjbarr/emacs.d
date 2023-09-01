@@ -1,6 +1,7 @@
 ;;; ivy-cfg.el -- experimental ivy config
 ;;; Commentary:
 ;;; Code:
+
 (use-package swiper :straight t
   :bind (("C-s" . swiper)
          ("C-r" . swiper-backward)))
