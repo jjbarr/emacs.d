@@ -1,9 +1,33 @@
-(use-package vertico :straight t
+(use-package vertico
+  :straight (vertico :files (:defaults "extensions/*")
+                     :includes (vertico-buffer
+                                vertico-directory
+                                vertico-flat
+                                vertico-grid
+                                vertico-indexed
+                                vertico-mouse
+                                vertico-multiform
+                                vertico-quick
+                                vertico-repeat
+                                vertico-reverse
+                                vertico-unobtrusive))
   :config
   (setq read-file-name-completion-ignore-case t
         read-buffer-completion-ignore-case t
         completion-ignore-case t)
   (vertico-mode))
+
+(use-package vertico-directory :after (vertico)
+  :bind (:map vertico-map
+              ("RET" . vertico-directory-enter)
+              ("DEL" . vertico-directory-delete-char)
+              ("M-DEL" . vertico-directory-delete-word))
+  :hook ((rfn-eshadow-update-overlay . vertico-directory-tidy)))
+
+(use-package vertico-multiform :after (vertico)
+  :config (vertico-multiform-mode))
+
+(use-package savehist :init (savehist-mode))
 
 (use-package orderless :straight t
   :after (vertico)
@@ -32,7 +56,7 @@
          ("C-c M-x" . consult-mode-command)
          ("C-c h" . consult-history)
          ("C-c k" . consult-kmacro)
-         ("C-c m" . consult-man)
+         ("C-c n" . consult-man)
          ("C-c i" . consult-info)
          ([remap Info-search] . consult-info)
          ;; C-x bindings in `ctl-x-map'
@@ -44,7 +68,7 @@
          ("C-x p b" . consult-project-buffer)
          ;; Custom M-# bindings for fast register access
          ("M-#" . consult-register-load)
-         ("M-'" . consult-register-store)          ;; orig. abbrev-prefix-mark (unrelated)
+         ("M-'" . consult-register-store);; orig. abbrev-prefix-mark (unrelated)
          ("C-M-#" . consult-register)
          ;; Other custom bindings
          ("M-y" . consult-yank-pop)
