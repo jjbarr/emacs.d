@@ -3,6 +3,15 @@
 ;; it's a fucking mess.
 ;;; Code:
 
+;; temporarily disable the GC for speed reasons (stolen from Doom)
+(setq gc-cons-threshold most-positive-fixnum ; 2^61 bytes
+      gc-cons-percentage 0.6)
+
+(add-hook 'emacs-startup-hook
+  (lambda ()
+    (setq gc-cons-threshold 16777216 ; 16mb
+          gc-cons-percentage 0.1)))
+
 ;;get the load path up...
 (push (expand-file-name "config/" user-emacs-directory) load-path)
 
