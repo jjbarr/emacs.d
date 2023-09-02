@@ -27,9 +27,6 @@
 ;; and bootstrap use-package as well
 (straight-use-package 'use-package)
 (require 'use-package)
-;;reqs
-(require 'cl-lib)
-
 ;; We have to do this for certain actions that need to be run after the UI
 ;; loads. Why isn't this built in? x.x
 
@@ -56,9 +53,8 @@
 (load "company-cfg")
 (load "chrome-cfg")
 (load "font-cfg")
-(cl-case system-type
-  ((ms-dos windows-nt) nil)
-  (otherwise (load "site-unix")))
+(if (not (or (eq system-type 'ms-dos) (eq system-type 'windows-nt)))
+    (load "site-unix"))
 
 ;; PER-LANGUAGE CONFIGURATION
 (load "lisp-cfg")
