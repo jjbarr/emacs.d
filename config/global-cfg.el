@@ -74,17 +74,31 @@
     (setq read-extended-command-predicate
           #'command-completion-default-include-p))
 
+;; lots of just... small but really helpful packages
+
 ;;mandatory packages for use-package features
 
 (use-package diminish :straight t)
 (use-package delight :straight t)
 
 ;; Everyone should always install editorconfig, including me
-
 (use-package editorconfig :straight t
   :diminish
   :config (editorconfig-mode 1))
 
+;; better help is always a good thing
+(use-package helpful :straight t
+  :bind (("C-h f" . helpful-callable)
+         ("C-h v" . helpful-variable)
+         ("C-h k" . helpful-key)
+         ("C-h x" . helpful-command)))
+
+;; better startup profiling would be nice
+(use-package esup :straight t)
+
+;;expand region just seems helpful.
+(use-package expand-region :straight t
+  :bind ("C-=" . er/expand-region))
 
 ;; When you need it you need it
 (use-package multiple-cursors :straight t
@@ -93,6 +107,17 @@
          ("C-<" . mc/mark-previous-like-this)
          ("C-c C-<" . mc/mark-all-like-this)))
 
+;;ctrlf is just... better isearch
+(use-package ctrlf :straight t
+  :demand t
+  :config
+  (ctrlf-mode +1))
+
+;;visual-regexp is aggressively convenient
+(use-package visual-regexp :straight t
+  :bind (("C-c r" . vr/replace)
+         ("C-c q" . vr/query-replace)
+         ("C-c C-;" . vr/mc-mark)))
 
 ;;ace-jump should always be on
 (use-package avy :straight t
@@ -119,11 +144,46 @@
   :bind ("C-;" . iedit-mode))
 
 ;;; Generally really useful modes
+;; rg. It's. It's rg.
+(use-package rg :straight t
+  :init
+  ;;autoload hacks
+  (defun rg-autoload-keymap ()
+  (interactive)
+  (if (not (require 'rg nil t))
+      (user-error (format "Cannot load rg"))
+    (let ((key-vec (this-command-keys-vector)))
+      (global-set-key key-vec rg-global-map)
+      (setq unread-command-events
+        (mapcar (lambda (ev) (cons t ev))
+                (listify-key-sequence key-vec))))))
+  
+  (global-set-key (kbd "C-c s") #'rg-autoload-keymap))
+
+;; Okay, smartparens, let's see if we can make this work this time.
+;; This is basically all stolen from Radian
+
+(use-package smartparens :straight t
+  :demand t
+  :config
+  (require 'smartparens-config)
+  (smartparens-global-mode +1)
+  (show-smartparens-global-mode +1)
+  (sp-use-smartparens-bindings)
+  (add-to-list 'sp-ignore-modes-list #'org-mode)
+  (add-to-list 'sp-ignore-modes-list #'org-agenda-mode)
+  (bind-key [remap kill-line] #'sp-kill-hybrid-sexp smartparens-mode-map
+            (apply #'derived-mode-p sp-lisp-modes))
+  (dolist (key '(:unmatched-expression :no-matching-tag))
+    (setf (cdr (assq key sp-message-alist)) nil))
+  (when (fboundp 'minibuffer-mode)
+    (sp-local-pair #'minibuffer-mode "`" nil :actions nil)
+    (sp-local-pair #'minibuffer-mode "'" nil :actions nil)))
 
 ;;gotta have git
 (use-package magit :straight t)
 
-;;;And flycheck
+;; flycheck is too useful to not use
 (use-package flycheck :straight t
   :diminish
   :config (global-flycheck-mode))
