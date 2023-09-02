@@ -1,12 +1,7 @@
 ;;; lisp-cfg.el -- config for lisp
 ;;; Commentary:
 ;;n/a
-;;; 
-(use-package lispy :straight t
-  :hook (((emacs-lisp-mode
-           lisp-mode scheme-mode ielm-mode
-           lisp-interaction-mode eval-expression-minibuffer-setup)
-          . lispy-mode)))
+
 
 ;;geiser
 (use-package geiser :straight t

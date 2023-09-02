@@ -138,12 +138,6 @@
   :init
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate 95))
 
-;; iedit is sorta navigational...
-
-(use-package iedit :straight t
-  :bind ("C-;" . iedit-mode))
-
-;;; Generally really useful modes
 ;; rg. It's. It's rg.
 (use-package rg :straight t
   :init
