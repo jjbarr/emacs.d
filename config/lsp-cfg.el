@@ -12,9 +12,15 @@
     (setq lsp-signature-auto-activate t)
     (setq lsp-signature-doc-lines 3)
     (setq lsp-rust-server 'rust-analyzer)
-    (setq lsp-headerline-breadcrumb-enable nil))
+    (setq lsp-headerline-breadcrumb-enable nil)
+    (setq lsp-completion-provider :none))
+  :init
+  (defun my/lsp-mode-setup-completion ()
+    (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))
+          '(flex)))
   :hook ((java-mode . lsp)
-         (rustic-mode . lsp))
+         (rustic-mode . lsp)
+         (lsp-completion-mode . my/lsp-mode-setup-completion))
   :commands lsp)
 
 (use-package lsp-ui :straight t

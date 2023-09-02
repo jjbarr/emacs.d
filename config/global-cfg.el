@@ -121,6 +121,9 @@
   :init
   (add-hook 'xref-backend-functions #'dumb-jump-xref-activate 95))
 
+;; wgrep is nice
+(use-package wgrep :straight t)
+
 ;; rg. It's. It's rg.
 (use-package rg :straight t
   :init

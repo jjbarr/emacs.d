@@ -184,5 +184,3 @@
 (use-package embark-consult :straight t
   :hook
   (embark-collect-mode . consult-preview-at-point-mode))
-
-(use-package wgrep :straight t)
