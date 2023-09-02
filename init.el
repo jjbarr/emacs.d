@@ -4,6 +4,11 @@
 ;; it's a fucking mess.
 ;;; Code:
 
+;;custom go away!
+
+(setq custom-file (concat user-emacs-directory "custom.el"))
+(load custom-file)
+
 ;; temporarily disable the GC for speed reasons (stolen from Doom)
 (setq gc-cons-threshold most-positive-fixnum ; 2^61 bytes
       gc-cons-percentage 0.6)
@@ -70,10 +75,6 @@
 
 (add-hook 'asm-mode-hook #'fix-asm-mode)
 
-;;custom go away!
-
-(setq custom-file (concat user-emacs-directory "custom.el"))
-(load custom-file)
 
 ;;magit is annoying sometimes
 (setq magit-last-seen-setup-instructions "1.4.0")

@@ -24,9 +24,7 @@
  '(objed-cursor-color "#dc322f")
  '(org-format-latex-options
    '(:foreground default :background default :scale 1.3 :html-foreground "Black" :html-background "Transparent" :html-scale 1.0 :matchers
-                 ("begin" "$1" "$" "$$" "\\(" "\\[")))
- '(package-selected-packages
-   '(compat rustic python-isort python-black all-the-icons iedit pdf-tools mwim graphviz-dot-mode meson-mode doom-themes smart-tabs-mode yasnippet-snippets geiser paredit diminish treemacs treemacs-magit treemacs-projectile winum with-editor ace-window avy cargo color-theme-sanityinc-solarized company counsel counsel-projectile flycheck flycheck-rust haskell-mode ivy js2-mode lsp-java lsp-mode lsp-ui projectile rust-mode slime use-package doom-modeline keychain-environment dap-mode org auctex delight))
+                 ("begin" "$1" "$" "$$" "\\(" "\\["))) 
  '(pdf-view-midnight-colors (cons "#839496" "#002b36"))
  '(rustic-ansi-faces
    ["#002b36" "#dc322f" "#859900" "#b58900" "#268bd2" "#d33682" "#2aa198" "#839496"])
