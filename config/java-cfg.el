@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 ;;; java-cfg.el -- extra stuff for Java code
 ;;; Commentary:
 ;; none

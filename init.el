@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 ;;; init.el --- My init script
 ;;; Commentary:
 ;; it's a fucking mess.

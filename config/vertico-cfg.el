@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 (use-package vertico
   :straight (vertico :files (:defaults "extensions/*")
                      :includes (vertico-buffer

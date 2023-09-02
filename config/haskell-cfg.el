@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 ;;; haskell-cfg.el -- configuration for working with Haskell
 ;;; Commentary:
 ;; none.

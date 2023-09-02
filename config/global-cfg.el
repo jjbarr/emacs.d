@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 ;;; global-cfg -- the stuff that needs to be on at all times.
 
 ;;; Commentary:
@@ -75,7 +76,8 @@
          ("C-h x" . helpful-command)))
 
 ;; better startup profiling would be nice
-(use-package esup :straight t)
+(use-package esup :straight t
+  :commands esup)
 
 ;;expand region just seems helpful.
 (use-package expand-region :straight t
@@ -164,6 +166,7 @@
   :config (global-flycheck-mode))
 
 ;; tramp-term is super useful if you ever need to work with remote servers.
-(use-package tramp-term :straight t)
+(use-package tramp-term :straight t
+  :commands tramp-term)
 
 ;;; global-cfg.el ends here

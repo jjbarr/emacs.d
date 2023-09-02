@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 ;;; lisp-cfg.el -- config for lisp
 ;;; Commentary:
 ;;n/a

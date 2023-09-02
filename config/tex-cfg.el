@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 ;;; tex-cfg.el -- config for TeX
 ;;; Commentary:
 ;;; Code:

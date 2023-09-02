@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 ;;; js-cfg.el -- javascript config
 ;;; Commentary:
 ;;; Code:

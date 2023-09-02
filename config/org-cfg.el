@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 ;;; org-cfg.el -- org config
 ;;; Commentary:
 ;; I'm gonna fill this out later

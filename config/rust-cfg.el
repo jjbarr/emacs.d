@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 ;;; rust-cfg.el -- rust config
 ;;; Commentary:
 ;;none yet.

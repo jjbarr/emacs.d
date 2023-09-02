@@ -1,3 +1,4 @@
+;; -*- lexical-binding: t; -*-
 ;;; lsp-cfg.el -- langserver config
 ;;; Commentary:
 ;;...yeah.
