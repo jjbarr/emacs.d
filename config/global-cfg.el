@@ -1,22 +1,34 @@
 ;;; global-cfg -- the stuff that needs to be on at all times.
 
 ;;; Commentary:
-;It's just config.
-
+;
 ;;; Code:
-;; First and foremost, I should never, ever be using DOS line endings.
-;; I know, I know, Git handles this automatically, but I have non-git files.
-;; Embarassing but true.
+
+;;;General defaults
+
+;;fill column is 70 by default for some reason
+(setq-default fill-column 80)
+
+;;tabs, spaces, and indentation;
+;;Fuck hard tabs
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 4)
+(setq-default c-basic-offset tab-width)
+(defvaralias 'cperl-indent-level 'tab-width)
+(setq-default c-default-style
+              '((java-mode . "java")
+                (other . "k&r")))
+
+;;Better to have it than not
+(setq enable-recursive-minibuffers t)
+
+;;disable extra X stuff.
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+
+;; I hate dos line endings
 (prefer-coding-system 'utf-8-unix)
-
-;; tell us about yourself, why don't you?
-
-(defvar user-mail-addresses '("jbarrett186@gmail.com"
-                              "jjbarrett@umass.edu"))
-
-(setq user-full-name "Joshua Barrett")
-
-;;bindings for global stuff.
 
 ;;Global keybinds for emacs features.
 (bind-key "\C-w" 'backward-kill-word)
@@ -24,7 +36,43 @@
 (bind-key "\C-o" 'occur)
 (bind-key (kbd "C-c C-/") 'comment-or-uncomment-region)
 
-;;;SUPER IMPORTANT ALWAYS-USE PACKAGES
+
+;; We have to do this for certain actions that need to be run after the UI
+;; loads. Why isn't this built in? x.x
+(defun apply-if-gui (&rest action)
+  "Do specified ACTION if we're in a gui regardless of daemon or not."
+  (if (daemonp)
+      (add-hook 'after-make-frame-functions
+                (lambda (frame)
+                  (select-frame frame)
+                  (if (display-graphic-p frame)
+                      (apply action))))
+    (if (display-graphic-p)
+        (apply action))))
+
+;; my preferred font
+(apply-if-gui
+ (lambda ()
+   (set-face-attribute 'default nil :font "Terminus (TTF)" :height 120)))
+
+;;; vertico-endorsed. Seems to make sense
+(defun crm-indicator (args)
+    (cons (format "[CRM%s] %s"
+                  (replace-regexp-in-string
+                   "\\`\\[.*?]\\*\\|\\[.*?]\\*\\'" ""
+                   crm-separator)
+                  (car args))
+          (cdr args)))
+(advice-add #'completing-read-multiple :filter-args #'crm-indicator)
+
+;; Do not allow the cursor in the minibuffer prompt
+(setq minibuffer-prompt-properties
+      '(read-only t cursor-intangible t face minibuffer-prompt))
+(add-hook 'minibuffer-setup-hook #'cursor-intangible-mode)
+
+(if (not (version< emacs-version "28"))
+    (setq read-extended-command-predicate
+          #'command-completion-default-include-p))
 
 ;;mandatory packages for use-package features
 
@@ -79,49 +127,6 @@
 (use-package flycheck :straight t
   :diminish
   :config (global-flycheck-mode))
-
-
-;;;General defaults
-;;fill column is 70 by default for some reason
-(setq-default fill-column 80)
-
-;;tabs, spaces, and indentation;
-;;Fuck hard tabs
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
-(setq-default c-basic-offset tab-width)
-(defvaralias 'cperl-indent-level 'tab-width)
-(setq-default c-default-style
-              '((java-mode . "java")
-                (other . "k&r")))
-
-;; ooh, ooh, recursive mini!
-
-(setq enable-recursive-minibuffers t)
-
-;; vertico-endorsed. Seems to make sense
-(defun crm-indicator (args)
-    (cons (format "[CRM%s] %s"
-                  (replace-regexp-in-string
-                   "\\`\\[.*?]\\*\\|\\[.*?]\\*\\'" ""
-                   crm-separator)
-                  (car args))
-          (cdr args)))
-(advice-add #'completing-read-multiple :filter-args #'crm-indicator)
-
-  ;; Do not allow the cursor in the minibuffer prompt
-(setq minibuffer-prompt-properties
-      '(read-only t cursor-intangible t face minibuffer-prompt))
-(add-hook 'minibuffer-setup-hook #'cursor-intangible-mode)
-
-(if (not (version< emacs-version "28"))
-    (setq read-extended-command-predicate
-          #'command-completion-default-include-p))
-
-;;disable extra X stuff.
-(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
-(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
 ;; tramp-term is super useful if you ever need to work with remote servers.
 (use-package tramp-term :straight t)
