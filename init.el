@@ -27,32 +27,16 @@
 ;; and bootstrap use-package as well
 (straight-use-package 'use-package)
 (require 'use-package)
-;; We have to do this for certain actions that need to be run after the UI
-;; loads. Why isn't this built in? x.x
-
-(defun apply-if-gui (&rest action)
-  "Do specified ACTION if we're in a gui regardless of daemon or not."
-  (if (daemonp)
-      (add-hook 'after-make-frame-functions
-                (lambda (frame)
-                  (select-frame frame)
-                  (if (display-graphic-p frame)
-                      (apply action))))
-    (if (display-graphic-p)
-        (apply action))))
-
 
 ;;config stuff
 ;;EMACS CONFIGURATION
 (load "global-cfg")
 (load "vertico-cfg")
-(load "yas-cfg")
 (load "org-cfg")
 (load "projectile-cfg")
 (load "treemacs-cfg")
 (load "company-cfg")
 (load "chrome-cfg")
-(load "font-cfg")
 (if (not (or (eq system-type 'ms-dos) (eq system-type 'windows-nt)))
     (load "site-unix"))
 
