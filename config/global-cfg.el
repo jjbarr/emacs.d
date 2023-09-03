@@ -106,6 +106,11 @@
 ;; wgrep is nice
 (use-package wgrep :straight t)
 
+;; vundo is convenient
+(use-package vundo :straight t
+  :bind ("C-x u" . vundo))
+
+
 ;; rg. It's. It's rg.
 (use-package rg :straight t
   :after (project)
