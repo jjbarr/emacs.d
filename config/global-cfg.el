@@ -106,19 +106,9 @@
 
 ;; rg. It's. It's rg.
 (use-package rg :straight t
-  :init
-  ;;autoload hacks
-  (defun rg-autoload-keymap ()
-    (interactive)
-    (if (not (require 'rg nil t))
-        (user-error (format "Cannot load rg"))
-      (let ((key-vec (this-command-keys-vector)))
-        (global-set-key key-vec rg-global-map)
-        (setq unread-command-events
-              (mapcar (lambda (ev) (cons t ev))
-                      (listify-key-sequence key-vec))))))
-  
-  (global-set-key (kbd "C-c s") #'rg-autoload-keymap))
+  :after (project)
+  :demand t
+  :bind ("C-x p r" . rg-project))
 
 ;; Okay, smartparens, let's see if we can make this work this time.
 ;; This is basically all stolen from Radian
