@@ -30,3 +30,5 @@ tramp
 .extension
 history
 projects
+/eln-cache/
+/tree-sitter/
