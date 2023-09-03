@@ -18,14 +18,11 @@
     (setq gc-cons-threshold 16777216 ; 16mb
           gc-cons-percentage 0.1)))
 
-;;get the load path up...
-(push (expand-file-name "config/" user-emacs-directory) load-path)
-
 ;;and now we're in business
 
 ;;packaging bootstrap
 ;; we've using straight now because I am TIRED of use-package sucking.
-(setq straight-check-for-modifications '(check-on-save find-when-checking))
+(defvar straight-check-for-modifications '(check-on-save find-when-checking))
 (defvar bootstrap-version)
 (let ((bootstrap-file
        (expand-file-name "straight/repos/straight.el/bootstrap.el"

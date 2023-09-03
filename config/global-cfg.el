@@ -64,6 +64,11 @@
   (setq project-find-functions
         (list #'project-try-vc #'project-local-try-local)))
 
+;; I like flyspell
+
+(use-package flyspell
+  :hook (text-mode . flyspell-mode))
+
 ;; lots of just... small but really helpful packages
 
 ;;mandatory packages for use-package features
