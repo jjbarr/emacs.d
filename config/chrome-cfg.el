@@ -58,4 +58,11 @@
   (add-hook 'focus-in-hook
             (lambda () (setq doom-modeline-icon (display-graphic-p)))))
 
+;; olivetti mode is nice for some things.
+(use-package olivetti :straight t
+  :commands olivetti-mode
+  :config
+  (set-face-attribute 'olivetti-fringe nil
+                    :inherit 'ansi-color-bright-black))
+
 ;;; chrome-cfg.el ends here
