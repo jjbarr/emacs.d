@@ -6,15 +6,14 @@
 
 (use-package lsp-mode :straight t
   :init
-  (progn
-    (setq lsp-prefer-flymake nil)
-    (setq lsp-enable-snippet nil)
-    (setq lsp-signature-auto-activate t)
-    (setq lsp-signature-doc-lines 3)
-    (setq lsp-rust-server 'rust-analyzer)
-    (setq lsp-headerline-breadcrumb-enable nil)
-    (setq lsp-completion-provider :none))
-  :init
+  (setq lsp-prefer-flymake nil)
+  (setq lsp-enable-snippet nil)
+  (setq lsp-signature-auto-activate t)
+  (setq lsp-signature-doc-lines 3)
+  (setq lsp-rust-server 'rust-analyzer)
+  (setq lsp-headerline-breadcrumb-enable nil)
+  (setq lsp-completion-provider :none)
+  (setq lsp-keymap-prefix "C-c C-l")
   (defun my/lsp-mode-setup-completion ()
     (setf (alist-get 'styles (alist-get 'lsp-capf completion-category-defaults))
           '(flex)))
