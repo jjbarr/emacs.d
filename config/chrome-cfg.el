@@ -23,7 +23,7 @@
   (apply-if-gui
    (lambda ()
      (set-face-attribute 'default nil :font "Terminus (TTF)" :height 120)
-     (set-face-attribute 'fixed-pitch nil :font "Source Code Pro" :height 10)
+     (set-face-attribute 'fixed-pitch nil :font "Source Code Pro" :height 100)
      (set-face-attribute 'variable-pitch nil :font "Noto Sans" :height 110))))
 
 ; for fuck's sake...
@@ -67,5 +67,7 @@
 
 (use-package mixed-pitch :straight t
   :hook (text-mode . mixed-pitch-mode))
+
+
 
 ;;; chrome-cfg.el ends here
