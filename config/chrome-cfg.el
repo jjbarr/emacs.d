@@ -1,25 +1,30 @@
 ;; -*- lexical-binding: t; -*-
-;; fill column rule: this is what puts that line up there
-;; old fci is dead, long live internal dfci
-(global-display-fill-column-indicator-mode 1)
 
-;; We have to do this for certain actions that need to be run after the UI
-;; loads. Why isn't this built in? x.x
-(defun apply-if-gui (&rest action)
-  "Do specified ACTION if we're in a gui regardless of daemon or not."
-  (if (daemonp)
-      (add-hook 'after-make-frame-functions
-                (lambda (frame)
-                  (select-frame frame)
-                  (if (display-graphic-p frame)
-                      (apply action))))
-    (if (display-graphic-p)
-        (apply action))))
+(use-package emacs
+  :init
+  ;; fill column rule: this is what puts that line up there
+  ;; old fci is dead, long live internal dfci
+  (global-display-fill-column-indicator-mode 1)
 
-;; my preferred font
-(apply-if-gui
- (lambda ()
-   (set-face-attribute 'default nil :font "Terminus (TTF)" :height 120)))
+  ;; We have to do this for certain actions that need to be run after the UI
+  ;; loads. Why isn't this built in? x.x
+  (defun apply-if-gui (&rest action)
+    "Do specified ACTION if we're in a gui regardless of daemon or not."
+    (if (daemonp)
+        (add-hook 'after-make-frame-functions
+                  (lambda (frame)
+                    (select-frame frame)
+                    (if (display-graphic-p frame)
+                        (apply action))))
+      (if (display-graphic-p)
+          (apply action))))
+
+  ;; my preferred font
+  (apply-if-gui
+   (lambda ()
+     (set-face-attribute 'default nil :font "Terminus (TTF)" :height 120)
+     (set-face-attribute 'fixed-pitch nil :font "Source Code Pro" :height 10)
+     (set-face-attribute 'variable-pitch nil :font "Georgia" :height 120))))
 
 ; for fuck's sake...
 (use-package all-the-icons :straight t)

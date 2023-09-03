@@ -50,7 +50,6 @@
 (load "org-cfg")
 (load "projectile-cfg")
 (load "treemacs-cfg")
-;;(load "company-cfg")
 (load "corfu-cfg")
 (load "chrome-cfg")
 (if (not (or (eq system-type 'ms-dos) (eq system-type 'windows-nt)))

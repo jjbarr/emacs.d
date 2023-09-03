@@ -6,55 +6,35 @@
 ;;; Code:
 
 ;;;General defaults
+(use-package emacs
+  :bind (("C-w" . backward-kill-word)
+         ("C-c C-k" . kill-region)
+         ("C-o" . occur)
+         ("C-c C-/" . comment-or-uncomment-region))
+  :init
+  ;;fill column is 70 by default for some reason
+  (setq-default fill-column 80)
 
-;;fill column is 70 by default for some reason
-(setq-default fill-column 80)
+  ;;tabs, spaces, and indentation;
+  ;;Fuck hard tabs
+  (setq-default indent-tabs-mode nil)
+  (setq-default tab-width 4)
+  (setq-default c-basic-offset tab-width)
+  (defvaralias 'cperl-indent-level 'tab-width)
+  (setq-default c-default-style
+                '((java-mode . "java")
+                  (other . "k&r")))
 
-;;tabs, spaces, and indentation;
-;;Fuck hard tabs
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 4)
-(setq-default c-basic-offset tab-width)
-(defvaralias 'cperl-indent-level 'tab-width)
-(setq-default c-default-style
-              '((java-mode . "java")
-                (other . "k&r")))
+  ;;Better to have it than not
+  (setq enable-recursive-minibuffers t)
 
-;;Better to have it than not
-(setq enable-recursive-minibuffers t)
+  ;;disable extra X stuff.
+  (if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+  (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+  (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
 
-;;disable extra X stuff.
-(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
-(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
-(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
-
-;; I hate dos line endings
-(prefer-coding-system 'utf-8-unix)
-
-;;Global keybinds for emacs features.
-(bind-key "\C-w" 'backward-kill-word)
-(bind-key "\C-c\C-k" 'kill-region)
-(bind-key "\C-o" 'occur)
-(bind-key (kbd "C-c C-/") 'comment-or-uncomment-region)
-
-;;; vertico-endorsed. Seems to make sense
-(defun crm-indicator (args)
-    (cons (format "[CRM%s] %s"
-                  (replace-regexp-in-string
-                   "\\`\\[.*?]\\*\\|\\[.*?]\\*\\'" ""
-                   crm-separator)
-                  (car args))
-          (cdr args)))
-(advice-add #'completing-read-multiple :filter-args #'crm-indicator)
-
-;; Do not allow the cursor in the minibuffer prompt
-(setq minibuffer-prompt-properties
-      '(read-only t cursor-intangible t face minibuffer-prompt))
-(add-hook 'minibuffer-setup-hook #'cursor-intangible-mode)
-
-(if (not (version< emacs-version "28"))
-    (setq read-extended-command-predicate
-          #'command-completion-default-include-p))
+  ;; I hate dos line endings
+  (prefer-coding-system 'utf-8-unix))
 
 ;; lots of just... small but really helpful packages
 
@@ -129,14 +109,14 @@
   :init
   ;;autoload hacks
   (defun rg-autoload-keymap ()
-  (interactive)
-  (if (not (require 'rg nil t))
-      (user-error (format "Cannot load rg"))
-    (let ((key-vec (this-command-keys-vector)))
-      (global-set-key key-vec rg-global-map)
-      (setq unread-command-events
-        (mapcar (lambda (ev) (cons t ev))
-                (listify-key-sequence key-vec))))))
+    (interactive)
+    (if (not (require 'rg nil t))
+        (user-error (format "Cannot load rg"))
+      (let ((key-vec (this-command-keys-vector)))
+        (global-set-key key-vec rg-global-map)
+        (setq unread-command-events
+              (mapcar (lambda (ev) (cons t ev))
+                      (listify-key-sequence key-vec))))))
   
   (global-set-key (kbd "C-c s") #'rg-autoload-keymap))
 
