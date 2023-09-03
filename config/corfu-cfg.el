@@ -18,6 +18,9 @@
   (add-to-list 'corfu-continue-commands #'corfu-move-to-minibuffer)
   (global-corfu-mode))
 
+(use-package corfu-info
+  :after (corfu))
+
 (use-package cape :straight t
     :bind (("M-p p" . completion-at-point) ;; capf
            ("M-p t" . complete-tag)        ;; etags
