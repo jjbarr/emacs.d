@@ -22,16 +22,15 @@
          (lsp-completion-mode . my/lsp-mode-setup-completion))
   :commands lsp)
 
-(use-package lsp-ui :straight t
-  :hook ((lsp-mode . lsp-ui-mode))
-  :init
-  (setq lsp-ui-flycheck-live-reporting nil
-        lsp-ui-sideline-show-hover t
-        lsp-ui-sideline-delay 2
-        lsp-ui-sideline-show-code-actions nil
-        lsp-ui-sideline-show-diagnostics nil
-        lsp-ui-doc-enable nil)
-  :bind (("H-d" . lsp-ui-doc-glance)))
+;; (use-package lsp-ui :straight t
+;;   :hook ((lsp-mode . lsp-ui-mode))
+;;   :init
+;;   (setq lsp-ui-sideline-show-hover t
+;;         lsp-ui-sideline-delay 2
+;;         lsp-ui-sideline-show-code-actions nil
+;;         lsp-ui-sideline-show-diagnostics nil
+;;         lsp-ui-doc-enable nil)
+;;   :bind (("M-d" . lsp-ui-doc-glance)))
 
 (use-package dap-mode
   :straight t
