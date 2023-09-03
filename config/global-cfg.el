@@ -57,7 +57,9 @@
 
 ;; better startup profiling would be nice
 (use-package esup :straight t
-  :commands esup)
+  :commands esup
+  :init
+  (setq esup-depth 0))
 
 ;;expand region just seems helpful.
 (use-package expand-region :straight t
@@ -141,5 +143,6 @@
 ;; tramp-term is super useful if you ever need to work with remote servers.
 (use-package tramp-term :straight t
   :commands tramp-term)
+
 
 ;;; global-cfg.el ends here
