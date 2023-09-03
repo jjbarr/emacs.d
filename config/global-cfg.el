@@ -7,6 +7,7 @@
 
 ;;;General defaults
 (use-package emacs
+  :demand t
   :bind (("C-w" . backward-kill-word)
          ("C-c C-k" . kill-region)
          ("C-o" . occur)
@@ -24,7 +25,6 @@
   (setq-default c-default-style
                 '((java-mode . "java")
                   (other . "k&r")))
-
   ;;Better to have it than not
   (setq enable-recursive-minibuffers t)
 
@@ -35,6 +35,14 @@
 
   ;; I hate dos line endings
   (prefer-coding-system 'utf-8-unix))
+
+;; eldoc mode should have a line limit. A short one.
+(use-package eldoc
+  :bind (("C-c d b" . eldoc-doc-buffer))
+  :init
+  (setq eldoc-echo-area-use-multiline-p 3)
+  (setq eldoc-documentation-strategy 'eldoc-documentation-compose-eagerly)
+  (global-eldoc-mode +1))
 
 ;; projects configuration
 
@@ -130,40 +138,14 @@
 (use-package vundo :straight t
   :bind ("C-x u" . vundo))
 
-
 ;; rg. It's. It's rg.
 (use-package rg :straight t
   :after (project)
   :demand t
   :bind ("C-x p r" . rg-project))
 
-;; Okay, smartparens, let's see if we can make this work this time.
-;; This is basically all stolen from Radian
-
-(use-package smartparens :straight t
-  :demand t
-  :config
-  (require 'smartparens-config)
-  (smartparens-global-mode +1)
-  (show-smartparens-global-mode +1)
-  (sp-use-smartparens-bindings)
-  (add-to-list 'sp-ignore-modes-list #'org-mode)
-  (add-to-list 'sp-ignore-modes-list #'org-agenda-mode)
-  (bind-key [remap kill-line] #'sp-kill-hybrid-sexp smartparens-mode-map
-            (apply #'derived-mode-p sp-lisp-modes))
-  (dolist (key '(:unmatched-expression :no-matching-tag))
-    (setf (cdr (assq key sp-message-alist)) nil))
-  (when (fboundp 'minibuffer-mode)
-    (sp-local-pair #'minibuffer-mode "`" nil :actions nil)
-    (sp-local-pair #'minibuffer-mode "'" nil :actions nil)))
-
 ;;gotta have git
 (use-package magit :straight t)
-
-;; flycheck is too useful to not use
-(use-package flycheck :straight t
-  :diminish
-  :config (global-flycheck-mode))
 
 ;; tramp-term is super useful if you ever need to work with remote servers.
 (use-package tramp-term :straight t

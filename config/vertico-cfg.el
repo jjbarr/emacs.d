@@ -95,7 +95,7 @@
          ("M-y" . consult-yank-pop)
          ;; M-g bindings in `goto-map'
          ("M-g e" . consult-compile-error)
-         ("M-g f" . consult-flycheck)
+         ("M-g f" . consult-flymake)
          ("M-g M-g" . consult-goto-line)   ;; orig. goto-line
          ("M-g o" . consult-org-heading)   ;; Alternative: consult-org-heading
          ("M-g m" . consult-mark)
@@ -169,8 +169,6 @@
 
   ;; By default `consult-project-function' uses `project-root' from project.el.
   )
-
-(use-package consult-flycheck :straight t)
 
 (use-package embark :straight t
 

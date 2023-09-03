@@ -44,8 +44,12 @@
 (straight-use-package 'use-package)
 (require 'use-package)
 ;;config stuff
+;; put config files on the load path
+(push (expand-file-name "config/" user-emacs-directory) load-path)
 ;;EMACS CONFIGURATION
 (load "global-cfg")
+(load "treesit-cfg")
+(load "diag-cfg")
 (load "vertico-cfg")
 (load "org-cfg")
 (load "treemacs-cfg")
@@ -56,9 +60,6 @@
 
 ;; PER-LANGUAGE CONFIGURATION
 (load "lisp-cfg")
-(load "rust-cfg")
-(load "lsp-cfg")
-(load "java-cfg")
 (load "haskell-cfg")
 (load "js-cfg")
 (load "tex-cfg")
