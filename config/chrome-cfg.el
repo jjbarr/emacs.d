@@ -24,7 +24,7 @@
    (lambda ()
      (set-face-attribute 'default nil :font "Terminus (TTF)" :height 120)
      (set-face-attribute 'fixed-pitch nil :font "Source Code Pro" :height 10)
-     (set-face-attribute 'variable-pitch nil :font "Georgia" :height 120))))
+     (set-face-attribute 'variable-pitch nil :font "Noto Sans" :height 110))))
 
 ; for fuck's sake...
 (use-package all-the-icons :straight t)
@@ -64,5 +64,8 @@
   :config
   (set-face-attribute 'olivetti-fringe nil
                     :inherit 'ansi-color-bright-black))
+
+(use-package mixed-pitch :straight t
+  :hook (text-mode . mixed-pitch-mode))
 
 ;;; chrome-cfg.el ends here
