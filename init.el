@@ -43,13 +43,11 @@
 ;; and bootstrap use-package as well
 (straight-use-package 'use-package)
 (require 'use-package)
-
 ;;config stuff
 ;;EMACS CONFIGURATION
 (load "global-cfg")
 (load "vertico-cfg")
 (load "org-cfg")
-(load "projectile-cfg")
 (load "treemacs-cfg")
 (load "corfu-cfg")
 (load "chrome-cfg")

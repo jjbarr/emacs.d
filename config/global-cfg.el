@@ -36,6 +36,26 @@
   ;; I hate dos line endings
   (prefer-coding-system 'utf-8-unix))
 
+;; projects configuration
+
+(use-package project
+  :config
+  ;;stolen from project-x (which is GPLed so. uh. Guess that makes
+  ;; legality here somewhat dubious?)
+  (defvar project-local-identifier '(".project" ".projectile")
+    "A list of filenames use to identify non-VCed projects")
+  (cl-defmethod project-root ((project (head local)))
+    "Return root directory of current PROJECT."
+    (cdr project))
+  (defun project-local-try-local (dir)
+    "determine if DIR is a non-VC project"
+    (if-let ((root (seq-some (lambda (id)
+                               (locate-dominating-file dir id))
+                             project-local-identifier)))
+        (cons 'local root)))
+  (setq project-find-functions
+        (list #'project-try-vc #'project-local-try-local)))
+
 ;; lots of just... small but really helpful packages
 
 ;;mandatory packages for use-package features

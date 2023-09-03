@@ -168,17 +168,9 @@
   ;; You may want to use `embark-prefix-help-command' or which-key instead.
 
   ;; By default `consult-project-function' uses `project-root' from project.el.
-  ;; Optionally configure a different project root function.
-  ;;;; 4. projectile.el (projectile-project-root)
-  (autoload 'projectile-project-root "projectile")
-  (setq consult-project-function (lambda (_) (projectile-project-root))))
+  )
 
 (use-package consult-flycheck :straight t)
-
-(use-package consult-projectile
-  :straight (consult-projectile
-             :type git :host gitlab
-             :repo "OlMon/consult-projectile" :branch "master"))
 
 (use-package embark :straight t
 
