@@ -21,6 +21,10 @@
 (use-package corfu-info
   :after (corfu))
 
+(use-package kind-icon :straight t :after (corfu)
+  :custom (kind-icon-default-face 'corfu-default)
+  :config (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
+
 (use-package cape :straight t
     :bind (("M-p p" . completion-at-point) ;; capf
            ("M-p t" . complete-tag)        ;; etags
