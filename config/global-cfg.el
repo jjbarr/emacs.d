@@ -71,12 +71,18 @@
 
 ;; lots of just... small but really helpful packages
 
+;; okay first off this is kind of necessary unfortunately
+(use-package exec-path-from-shell :straight t
+  :config
+  (when (daemonp)
+    (exec-path-from-shell-initialize)))
+
 ;;mandatory packages for use-package features
 
 (use-package diminish :straight t)
 (use-package delight :straight t)
 
-;; Everyone should always install editorconfig, including me
+;; editorconfig for people who use that
 (use-package editorconfig :straight t
   :diminish
   :config (editorconfig-mode 1))

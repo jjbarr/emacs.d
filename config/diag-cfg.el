@@ -6,7 +6,10 @@
   (defun mp-eglot-eldoc ()
     (setq eldoc-documentation-strategy
           'eldoc-documentation-compose-eagerly))
-  :hook ((eglot-managed-mode . format-on-save)
+  (defun my/format-on-save ()
+    (add-hook 'before-save-hook #'eglot-format-buffer nil t))
+  :hook (
+         (eglot-managed-mode . my/format-on-save)
          (eglot-managed-mode . mp-eglot-eldoc)
          (c-ts-mode . eglot-ensure)
          (c++-ts-mode . eglot-ensure)
