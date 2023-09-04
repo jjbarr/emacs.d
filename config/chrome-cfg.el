@@ -24,7 +24,8 @@
    (lambda ()
      (set-face-attribute 'default nil :font "Terminus (TTF)" :height 120)
      (set-face-attribute 'fixed-pitch nil :font "Source Code Pro" :height 100)
-     (set-face-attribute 'variable-pitch nil :font "Noto Sans" :height 110))))
+     (set-face-attribute 'variable-pitch nil :font "ETBembo" :height 130)
+     (set-face-attribute 'variable-pitch-text nil :height 1.0))))
 
 ; for fuck's sake...
 (use-package all-the-icons :straight t)
@@ -62,6 +63,7 @@
 (use-package olivetti :straight t
   :commands olivetti-mode
   :config
+  (setq olivetti-style 'fancy)
   (set-face-attribute 'olivetti-fringe nil
                     :inherit 'ansi-color-bright-black))
 
