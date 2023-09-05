@@ -3,14 +3,18 @@
 
 (use-package eglot
   :preface
-  (defun mp-eglot-eldoc ()
+  (defun my/eglot-eldoc ()
     (setq eldoc-documentation-strategy
           'eldoc-documentation-compose-eagerly))
+  ;; turn out autoformat
   (defun my/format-on-save ()
     (add-hook 'before-save-hook #'eglot-format-buffer nil t))
-  :hook (
-         (eglot-managed-mode . my/format-on-save)
-         (eglot-managed-mode . mp-eglot-eldoc)
+  ;; turn off inlays by default, they're too noisy
+  (defun my/eglot-disable-inlay ()
+    (eglot-inlay-hints-mode 0))
+  :hook ((eglot-managed-mode . my/format-on-save)
+         (eglot-managed-mode . my/eglot-eldoc)
+         (eglot-managed-mode . my/eglot-disable-inlay)
          (c-ts-mode . eglot-ensure)
          (c++-ts-mode . eglot-ensure)
          (rust-ts-mode . eglot-ensure)
