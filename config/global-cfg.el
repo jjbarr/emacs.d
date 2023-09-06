@@ -71,6 +71,10 @@
 
 ;; lots of just... small but really helpful packages
 
+;; I would like to be able to read epubs...
+(use-package nov :straight t
+  :mode ("\\.epub\\'" . nov-mode))
+
 ;; okay first off this is kind of necessary unfortunately
 (use-package exec-path-from-shell :straight t
   :config
@@ -164,6 +168,5 @@
 ;; tramp-term is super useful if you ever need to work with remote servers.
 (use-package tramp-term :straight t
   :commands tramp-term)
-
 
 ;;; global-cfg.el ends here
