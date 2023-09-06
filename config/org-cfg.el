@@ -16,6 +16,7 @@
   (setq org-agenda-files (list org-directory))
   (setq org-default-notes-file
         (expand-file-name "misc-notes.org" org-directory))
+  (setq org-refile-targets org-agenda-files)
   (require 'ox-latex)
   (add-to-list 'org-latex-packages-alist '("" "minted"))
   (setq org-latex-listings 'minted)
