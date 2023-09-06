@@ -73,7 +73,8 @@
 
 ;; I would like to be able to read epubs...
 (use-package nov :straight t
-  :mode ("\\.epub\\'" . nov-mode))
+  :mode ("\\.epub\\'" . nov-mode)
+  :hook ((nov-mode . olivetti-mode)))
 
 ;; okay first off this is kind of necessary unfortunately
 (use-package exec-path-from-shell :straight t
