@@ -65,4 +65,10 @@ current project."
      "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
   )
 
+;; org-noter is just very useful.
+(use-package org-noter :straight t
+  :after (org)
+  :bind (("C-c o n" . org-noter)))
+
+
 ;;; org-cfg.el ends here
