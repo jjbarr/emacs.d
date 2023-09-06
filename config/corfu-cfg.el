@@ -6,8 +6,8 @@
   :config
   (setq corfu-auto t
         corfu-quit-no-match 'separator
-        corfu-auto-delay 0
-        corfu-auto-prefix 3)
+        corfu-auto-delay 0.5
+        corfu-auto-prefix 4)
   (add-hook 'text-mode-hook (lambda () (setq-local corfu-auto nil)))
   (defun corfu-move-to-minibuffer ()
     (interactive)
