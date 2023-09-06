@@ -33,6 +33,25 @@
          ("C-c o c" . org-capture)
          ("C-c o b" . org-switchb)))
 
+;; use org-id. We are not the huns.
+(use-package org-id
+  :after (org)
+  :preface
+  (defun my/consult-org-id-find-refs ()
+    "Finds references to id of current entry across all org files inside the
+current project."
+    (interactive)
+    (let ((id (org-id-get))
+          (pc (project-current)))
+      (unless id
+        (error "No id for entry at point"))
+      (unless pc
+        (error "Not inside of a project"))
+      (consult-ripgrep (project-root pc) (concat "id:" id))))
+  :bind (("C-c o x" . my/consult-org-id-find-refs))
+  :config
+  (setq org-id-link-to-org-use-id t))
+
 ;;; OX configuration
 (use-package ox-latex
   :after (org)
