@@ -4,6 +4,9 @@
 ;; it's a fucking mess.
 ;;; Code:
 
+(if (version< emacs-version "19.1")
+    (error "Emacs Version Must be 19.1 for this configuration to work"))
+
 ;;custom go away!
 
 (setq custom-file (concat user-emacs-directory "custom.el"))
