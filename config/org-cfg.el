@@ -14,7 +14,8 @@
             (substitute-in-file-name "$HOMEPATH/org")
           "~/org/"))
   (setq org-agenda-files (list org-directory))
-  (setq org-default-notes-file (concat org-directory "/todo.org"))
+  (setq org-default-notes-file
+        (expand-file-name "misc-notes.org" org-directory))
   (require 'ox-latex)
   (add-to-list 'org-latex-packages-alist '("" "minted"))
   (setq org-latex-listings 'minted)
