@@ -8,8 +8,11 @@
   :config (setq graphviz-dot-indent-width 4))
 (use-package org :straight t
   :config
-  (if (eq system-type 'windows-nt)
-      (setq org-directory (substitute-in-file-name "$HOMEPATH/org")))
+  
+  (setq org-directory
+        (if (eq system-type 'windows-nt)
+            (substitute-in-file-name "$HOMEPATH/org")
+          "~/org/"))
   (setq org-agenda-files (list org-directory))
   (setq org-default-notes-file (concat org-directory "/todo.org"))
   (require 'ox-latex)
