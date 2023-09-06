@@ -158,6 +158,9 @@
 ;;gotta have git
 (use-package magit :straight t)
 
+;;unfortunately really really need ssh-agency
+(use-package ssh-agency :straight t)
+
 ;; tramp-term is super useful if you ever need to work with remote servers.
 (use-package tramp-term :straight t
   :commands tramp-term)
