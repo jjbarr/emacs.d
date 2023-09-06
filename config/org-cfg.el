@@ -17,14 +17,6 @@
   (setq org-default-notes-file
         (expand-file-name "misc-notes.org" org-directory))
   (setq org-refile-targets org-agenda-files)
-  (require 'ox-latex)
-  (add-to-list 'org-latex-packages-alist '("" "minted"))
-  (setq org-latex-listings 'minted)
-  (setq
-   org-latex-pdf-process
-   '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-     "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
-     "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
   (setq org-src-fontify-natively t)
   (org-babel-do-load-languages
    'org-babel-load-languages
@@ -40,5 +32,18 @@
          ("C-c a" . org-agenda)
          ("C-c c" . org-capture)
          ("C-c b" . org-switchb)))
+
+;;; OX configuration
+(use-package ox-latex
+  :after (org)
+  :config
+  (add-to-list 'org-latex-packages-alist '("" "minted"))
+  (setq org-latex-src-block-backend 'minted)
+  (setq
+   org-latex-pdf-process
+   '("pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+     "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"
+     "pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f"))
+  )
 
 ;;; org-cfg.el ends here
