@@ -28,10 +28,10 @@
      (scheme . t)
      (awk . t)))
   :mode ("\\.org\\'" . org-mode)
-  :bind (("C-c l" . org-store-link)
-         ("C-c a" . org-agenda)
-         ("C-c c" . org-capture)
-         ("C-c b" . org-switchb)))
+  :bind (("C-c o l" . org-store-link)
+         ("C-c o a" . org-agenda)
+         ("C-c o c" . org-capture)
+         ("C-c o b" . org-switchb)))
 
 ;;; OX configuration
 (use-package ox-latex
