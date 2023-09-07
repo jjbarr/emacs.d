@@ -18,6 +18,9 @@
         (expand-file-name "misc-notes.org" org-directory))
   (setq org-refile-targets org-agenda-files)
   (setq org-src-fontify-natively t)
+  (setq org-babel-python-command "python3")
+  ;;syntax highlighting/indentation for rust
+  (push '("rust" . rust-ts-mode) org-src-lang-modes)
   (org-babel-do-load-languages
    'org-babel-load-languages
    '((dot . t)
@@ -32,6 +35,9 @@
          ("C-c o a" . org-agenda)
          ("C-c o c" . org-capture)
          ("C-c o b" . org-switchb)))
+
+;; this makes html export for syntax highlighting work
+(use-package htmlize :defer t)
 
 ;; use org-id. We are not the huns.
 (use-package org-id
