@@ -1,7 +1,7 @@
 ;;; configuration for flycheck and eglot, which collectively
 ;;; provide diagnostics and general nice-to-haves
 
-(use-package eglot
+(use-package eglot :straight t
   :preface
   (defun my/eglot-eldoc ()
     (setq eldoc-documentation-strategy
@@ -28,5 +28,5 @@
   :config
   (setq eglot-autoshutdown t))
 
-(use-package flymake
+(use-package flymake :straight t
   :hook ((prog-mode . flymake-mode)))
