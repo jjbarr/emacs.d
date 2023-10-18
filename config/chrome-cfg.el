@@ -67,9 +67,4 @@
   (set-face-attribute 'olivetti-fringe nil
                     :inherit 'ansi-color-bright-black))
 
-(use-package mixed-pitch :straight t
-  :hook (text-mode . mixed-pitch-mode))
-
-
-
 ;;; chrome-cfg.el ends here
