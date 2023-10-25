@@ -170,4 +170,9 @@
 (use-package tramp-term :straight t
   :commands tramp-term)
 
+;; I need to be able to work with markdown and this doesn't merit its own cfg.
+
+(use-package markdown-mode :straight t
+  :mode ("\\.md\\'" . gfm-mode)
+  :init (setq markdown-command '("pandoc" "--from=gfm" "--to=html5")))
 ;;; global-cfg.el ends here
