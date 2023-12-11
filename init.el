@@ -7,19 +7,18 @@
 (if (version< emacs-version "19.1")
     (error "Emacs Version Must be 19.1 for this configuration to work"))
 
+(setq load-prefer-newer t)
+
 ;;custom go away!
 
 (setq custom-file (concat user-emacs-directory "custom.el"))
 (load custom-file)
 
-;; temporarily disable the GC for speed reasons (stolen from Doom)
-(setq gc-cons-threshold most-positive-fixnum ; 2^61 bytes
-      gc-cons-percentage 0.6)
+(setq gc-cons-percentage 0.6)
 
 (add-hook 'emacs-startup-hook
   (lambda ()
-    (setq gc-cons-threshold 16777216 ; 16mb
-          gc-cons-percentage 0.1)))
+    (setq gc-cons-percentage 0.1)))
 
 ;;and now we're in business
 
@@ -78,4 +77,6 @@
 
 ;;magit is annoying sometimes
 (setq magit-last-seen-setup-instructions "1.4.0")
+
+
 ;;; init.el ends here
