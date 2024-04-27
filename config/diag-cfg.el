@@ -12,12 +12,9 @@
   ;; turn off inlays by default, they're too noisy
   (defun my/eglot-disable-inlay ()
     (eglot-inlay-hints-mode 0))
-  :hook ((eglot-managed-mode . my/format-on-save)
-         (eglot-managed-mode . my/eglot-eldoc)
+  :hook ((eglot-managed-mode . my/eglot-eldoc)
          (eglot-managed-mode . my/eglot-disable-inlay)
-         (c-ts-mode . eglot-ensure)
-         (c++-ts-mode . eglot-ensure)
-         (rust-ts-mode . eglot-ensure)
+         (rust-mode . eglot-ensure)
          (python-ts-mode . eglot-ensure))
   :bind (:map eglot-mode-map
          ("C-c e b" . eglot-format-buffer)
