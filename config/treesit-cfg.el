@@ -1,8 +1,7 @@
 ;;; dealing with treesitter...
 
 (use-package treesit
-  :mode (("\\.rs\\'" . rust-ts-mode)
-         ("\\.ts\\'" . typescript-ts-mode)
+  :mode (("\\.ts\\'" . typescript-ts-mode)
          ("\\.toml\\'" . toml-ts-mode))
   :bind (())
   :init
@@ -25,7 +24,8 @@
      (typescript "https://github.com/tree-sitter/tree-sitter-typescript"
                  "master" "typescript/src")
      (yaml "https://github.com/ikatyang/tree-sitter-yaml")
-     (rust "https://github.com/tree-sitter/tree-sitter-rust")))
+     (rust "https://github.com/tree-sitter/tree-sitter-rust")
+     (c "https://github.com/tree-sitter/tree-sitter-c")))
   (dolist (grammar treesit-language-source-alist)
     (unless (treesit-language-available-p (car grammar))
       (treesit-install-language-grammar (car grammar))))
@@ -38,3 +38,12 @@
            (python-mode . python-ts-mode)
            (c-mode . c-ts-mode)
            (c++-mode . c++-ts-mode))))
+
+;;; rust-mode has native ts support now.
+(use-package rust-mode :straight t
+  :mode (("\\.rs\\'" . rust-mode))
+  :bind (:map rust-mode-map
+              ())
+  :init
+  (setq rust-mode-treesitter-derive t)
+  (setq rust-format-on-save t))
