@@ -22,7 +22,7 @@
   :config (add-to-list 'corfu-margin-formatters #'kind-icon-margin-formatter))
 
 (use-package cape :straight t
-    :bind (("C-c TAB" . completion-at-point) ;; capf
+    :bind (("M-p p" . completion-at-point) ;; capf
            ("M-p t" . complete-tag)        ;; etags
            ("M-p d" . cape-dabbrev)        ;; or dabbrev-completion
            ("M-p h" . cape-history)
