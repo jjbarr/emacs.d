@@ -23,8 +23,8 @@
   (apply-if-gui
    (lambda ()
      (set-face-attribute 'default nil :font "Terminus (TTF)" :height 120)
-     (set-face-attribute 'fixed-pitch nil :font "Source Code Pro" :height 100)
-     (set-face-attribute 'variable-pitch nil :font "ETBembo" :height 130)
+     (set-face-attribute 'fixed-pitch nil :font "Source Code Pro"
+                         :height 100)
      (set-face-attribute 'variable-pitch-text nil :height 1.0))))
 
 ; for fuck's sake...
