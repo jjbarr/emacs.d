@@ -14,7 +14,7 @@
      ("courier" "CMU Typewriter Text" "fixed")
      ("Sans Serif" "helv" "helvetica" "arial" "fixed")
      ("helv" "helvetica" "arial" "fixed")
-     ("Terminus (TTF)" "Terminus")))
+     ("Terminus (TTF)" "Terminus" "BQN386 Unicode")))
  '(fci-rule-color "#405A61")
  '(inhibit-startup-screen t)
  '(jdee-db-active-breakpoint-face-colors (cons "#073642" "#268bd2"))
