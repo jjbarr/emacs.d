@@ -56,13 +56,7 @@
 (load "chrome-cfg")
 (if (not (or (eq system-type 'ms-dos) (eq system-type 'windows-nt)))
     (load "site-unix"))
-
-;; PER-LANGUAGE CONFIGURATION
-(load "lisp-cfg")
-(load "haskell-cfg")
-(load "js-cfg")
-(load "tex-cfg")
-(load "py-cfg")
+(load "lang-cfg")
 
 ;;odds and ends that I can't be assed to give their own file
 

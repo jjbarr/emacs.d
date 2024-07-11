@@ -38,12 +38,3 @@
            (python-mode . python-ts-mode)
            (c-mode . c-ts-mode)
            (c++-mode . c++-ts-mode))))
-
-;;; rust-mode has native ts support now.
-(use-package rust-mode :straight t
-  :mode (("\\.rs\\'" . rust-mode))
-  :bind (:map rust-mode-map
-              ())
-  :init
-  (setq rust-mode-treesitter-derive t)
-  (setq rust-format-on-save t))
