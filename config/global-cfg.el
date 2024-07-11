@@ -76,7 +76,7 @@
   :mode ("\\.epub\\'" . nov-mode)
   :hook ((nov-mode . olivetti-mode)))
 
-;; okay first off this is kind of necessary unfortunately
+;; this is kind of necessary unfortunately
 (use-package exec-path-from-shell :straight t
   :config
   (when (daemonp)
@@ -98,12 +98,6 @@
          ("C-h v" . helpful-variable)
          ("C-h k" . helpful-key)
          ("C-h x" . helpful-command)))
-
-;; better startup profiling would be nice
-(use-package esup :straight t
-  :commands esup
-  :init
-  (setq esup-depth 0))
 
 ;;expand region just seems helpful.
 (use-package expand-region :straight t
