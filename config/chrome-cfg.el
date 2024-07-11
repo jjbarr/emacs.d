@@ -25,7 +25,9 @@
      (set-face-attribute 'default nil :font "Terminus (TTF)" :height 120)
      (set-face-attribute 'fixed-pitch nil :font "Source Code Pro"
                          :height 100)
-     (set-face-attribute 'variable-pitch-text nil :height 1.0))))
+     (set-face-attribute 'variable-pitch-text nil :height 1.0)
+     ;; lmm is almost comically busted inside emacs
+     (add-to-list 'face-ignored-fonts "Latin Modern Math"))))
 
 ; for fuck's sake...
 (use-package all-the-icons :straight t)
