@@ -50,7 +50,7 @@
   :config
   ;;stolen from project-x (which is GPLed so. uh. Guess that makes
   ;; legality here somewhat dubious?)
-  (defvar project-local-identifier '(".project" ".projectile")
+  (defvar project-local-identifier '(".project" ".projectile" ".jj")
     "A list of filenames use to identify non-VCed projects")
   (cl-defmethod project-root ((project (head local)))
     "Return root directory of current PROJECT."
