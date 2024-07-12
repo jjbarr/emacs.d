@@ -57,4 +57,13 @@
   :bind (:map bqn-mode-map
               ("C-x C-e" . bqn-comint-eval-dwim)
               ("C-c C-e" . bqn-comint-eval-buffer)
-              ("C-c h" . bqn-help-symbol-info-at-point)))
+              ("C-c h s" . bqn-help-symbol-info-at-point)))
+(use-package bqn-keymap-mode :straight bqn-mode
+  :after bqn-mode
+  :bind (:map bqn-mode-map
+              ("C-c h k" . bqn-keymap-mode-show-keyboard)))
+(use-package bqn-glyph-mode :straight bqn-mode
+  :after bqn-mode
+  :bind (:map bqn-mode-map
+              ("C-c h g" . bqn-glyph-mode-show-glyphs)))
+
