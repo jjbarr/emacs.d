@@ -66,4 +66,17 @@
   :after bqn-mode
   :bind (:map bqn-mode-map
               ("C-c h g" . bqn-glyph-mode-show-glyphs)))
+;; uiua
+(use-package uiua-ts-mode :straight t
+  :after (treesit eglot)
+  :defer t
+  :preface
+  (defface my/uiua-default '((t (:family "Uiua386")))
+    "Face for the programming language Uiua")
+  (defun my/uiua-set-font ()
+    (buffer-face-set 'my/uiua-default)
+    (buffer-face-mode +1))
+  :mode "\\.ua\\'"
+  :hook ((uiua-ts-mode . my/uiua-set-font)
+         (uiua-ts-mode . eglot-ensure)))
 
