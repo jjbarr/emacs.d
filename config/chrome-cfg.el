@@ -22,20 +22,20 @@
   ;; my preferred font
   (apply-if-gui
    (lambda ()
-     (set-face-attribute 'default nil :font "Terminus (TTF)" :height 120)
+     (set-face-attribute 'default nil :font "Terminus" :height 120)
      (set-face-attribute 'fixed-pitch nil :font "Source Code Pro"
                          :height 100)
      (set-face-attribute 'variable-pitch-text nil :height 1.0)
      ;; lmm is almost comically busted inside emacs
      (add-to-list 'face-ignored-fonts "Latin Modern Math")
-     ;; ...and we need to do this becaus bqn386 doesn't do the right thing.
+     ;; ...and we need to do this because bqn386 doesn't do the right thing.
      ;; for some reason.
-     (set-fontset-font "fontset-default" '(#x1d53d . #x1d53e) "BQN386 Unicode")
-     (set-fontset-font "fontset-default" '(#x1d54a . #x1d54a) "BQN386 Unicode")
-     (set-fontset-font "fontset-default" '(#x1d54e . #x1d54f) "BQN386 Unicode")
-     (set-fontset-font "fontset-default" '(#x1d557 . #x1d558) "BQN386 Unicode")
-     (set-fontset-font "fontset-default" '(#x1d563 . #x1d564) "BQN386 Unicode")
-     (set-fontset-font "fontset-default" '(#x1d568 . #x1d569) "BQN386 Unicode")
+     (set-fontset-font "fontset-default" '(#x1d53d . #x1d53e) "BQN 386 Unicode")
+     (set-fontset-font "fontset-default" '(#x1d54a . #x1d54a) "BQN 386 Unicode")
+     (set-fontset-font "fontset-default" '(#x1d54e . #x1d54f) "BQN 386 Unicode")
+     (set-fontset-font "fontset-default" '(#x1d557 . #x1d558) "BQN 386 Unicode")
+     (set-fontset-font "fontset-default" '(#x1d563 . #x1d564) "BQN 386 Unicode")
+     (set-fontset-font "fontset-default" '(#x1d568 . #x1d569) "BQN 386 Unicode")
      )))
 
 ; for fuck's sake...
