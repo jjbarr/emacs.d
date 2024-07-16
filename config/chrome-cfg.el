@@ -22,7 +22,11 @@
   ;; my preferred font
   (apply-if-gui
    (lambda ()
-     (setq standard-display-table (make-display-table))
+     (if (char-table-range standard-display-table #x201d)
+         ;; if we're entering a graphical context for the first time after
+         ;; launch, standard-display-table is full of entries that only exist to
+         ;; keep the linux console from freaking out. So we need to trash it.
+         (setq standard-display-table (make-display-table)))
      (set-face-attribute 'default nil :font "Terminus" :height 120)
      (set-face-attribute 'fixed-pitch nil :font "Source Code Pro"
                          :height 100)
