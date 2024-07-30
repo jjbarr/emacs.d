@@ -18,11 +18,11 @@
                         (apply action))))
       (if (display-graphic-p)
           (apply action))))
-
   ;; my preferred font
   (apply-if-gui
    (lambda ()
-     (if (char-table-range standard-display-table #x201d)
+     (if (and standard-display-table
+              (char-table-range standard-display-table #x201d))
          ;; if we're entering a graphical context for the first time after
          ;; launch, standard-display-table is full of entries that only exist to
          ;; keep the linux console from freaking out. So we need to trash it.
