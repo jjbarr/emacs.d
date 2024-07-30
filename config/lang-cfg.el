@@ -67,8 +67,20 @@
   :bind (:map bqn-mode-map
               ("C-c h g" . bqn-glyph-mode-show-glyphs)))
 ;; uiua
-(use-package uiua-ts-mode :straight t
-  :after (treesit eglot)
+(use-package uiua-mode
+  :straight (uiua-mode
+             :type git
+             :flavor melpa
+             :host github
+             :repo "crmsnbleyd/uiua-mode")
+  :defer t)
+
+(use-package uiua-ts-mode :straight (uiua-ts-mode
+                                     :type git
+                                     :flavor melpa
+                                     :host github
+                                     :repo "crmsnbleyd/uiua-ts-mode")
+  :after (treesit eglot uiua-mode)
   :defer t
   :preface
   (defface my/uiua-default '((t (:family "Uiua386")))

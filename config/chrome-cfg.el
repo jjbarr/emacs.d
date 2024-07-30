@@ -78,7 +78,9 @@
             (lambda () (setq doom-modeline-icon (display-graphic-p)))))
 
 ;; olivetti mode is nice for some things.
-(use-package olivetti :straight t
+(use-package olivetti :straight (olivetti
+                                 :type git :flavor melpa :host github
+                                 :repo "rnkn/olivetti")
   :commands olivetti-mode
   :config
   (setq olivetti-style 'fancy)
