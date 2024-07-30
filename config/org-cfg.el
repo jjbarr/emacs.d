@@ -6,9 +6,9 @@
 
 (use-package graphviz-dot-mode :straight t
   :config (setq graphviz-dot-indent-width 4))
+
 (use-package org :straight t
-  :config
-  
+  :config  
   (setq org-directory
         (if (eq system-type 'windows-nt)
             (substitute-in-file-name "$HOMEPATH/org")
