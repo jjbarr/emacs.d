@@ -2,6 +2,7 @@
 ;;; provide diagnostics and general nice-to-haves
 
 (use-package eglot :straight t
+  :after flymake
   :preface
   (defun my/eglot-eldoc ()
     (setq eldoc-documentation-strategy
