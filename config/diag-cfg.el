@@ -42,4 +42,5 @@
 ;;  (eglot-x-setup))
 
 (use-package flymake :straight t
-  :hook ((prog-mode . flymake-mode)))
+  :hook ((prog-mode . flymake-mode))
+  :config (setq flymake-autoresize-margins nil))

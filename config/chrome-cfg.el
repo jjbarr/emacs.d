@@ -25,8 +25,14 @@
               (char-table-range standard-display-table #x201d))
          ;; if we're entering a graphical context for the first time after
          ;; launch, standard-display-table is full of entries that only exist to
-         ;; keep the linux console from freaking out. So we need to trash it.
-         (setq standard-display-table (make-display-table)))
+         ;; keep the linux console or a similar terminal from freaking out. This
+         ;; is not useful in a graphical environment or with modern unicode
+         ;; terminal emulators. So we need to trash it.
+         (setq standard-display-table nil))
+     ;; flymake-indicator-type is set incorrectly for graphical environments
+     ;; if we're coming in daemonized by default, which is irritating.
+     (setq flymake-indicator-type 'fringes)
+     
      (set-face-attribute 'default nil :font "Terminus" :height 120)
      (set-face-attribute 'fixed-pitch nil :font "Source Code Pro"
                          :height 100)
