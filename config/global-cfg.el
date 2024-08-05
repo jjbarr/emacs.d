@@ -48,6 +48,7 @@
 ;; projects configuration
 
 (use-package project
+  :straight t
   :config
   ;;stolen from project-x (which is GPLed so. uh. Guess that makes
   ;; legality here somewhat dubious?)
