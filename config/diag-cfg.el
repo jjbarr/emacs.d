@@ -13,9 +13,7 @@
   (defun my/eglot-disable-inlay ()
     (eglot-inlay-hints-mode 0))
   :hook ((eglot-managed-mode . my/eglot-eldoc)
-         (eglot-managed-mode . my/eglot-disable-inlay)
-         (rust-mode . eglot-ensure)
-         (python-ts-mode . eglot-ensure))
+         (eglot-managed-mode . my/eglot-disable-inlay))
   :bind (:map eglot-mode-map
          ("C-c e b" . eglot-format-buffer)
          ("C-c e r" . eglot-rename)
