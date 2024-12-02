@@ -25,7 +25,9 @@
   (setq-default c-default-style
                 '((java-mode . "java")
                   (other . "k&r")))
-  
+  (setq-default c-ts-mode-basic-offset tab-width)
+  (setq-default c-ts-mode-default-style "k&r")
+
   ;;Better to have it than not
   (setq enable-recursive-minibuffers t)
 
